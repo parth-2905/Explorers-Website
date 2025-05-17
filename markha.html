@@ -1,0 +1,1272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markha Valley Trek</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        
+        /* Hero Section with Slideshow */
+        .hero {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            overflow: hidden;
+        }
+        
+        .hero-slideshow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .hero-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+            background-size: cover;
+            background-position: center;
+            z-index: 1;
+        }
+        
+        .hero-slide.active {
+            opacity: 1;
+            z-index: 2;
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+        }
+        
+        .hero-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 90%;
+            max-width: 800px;
+            text-align: center;
+        }
+        
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+        }
+        
+        .hero-content p {
+            font-size: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+        }
+        
+        .scroll-down {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 1.2rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+            animation: bounce 2s infinite;
+            cursor: pointer;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0) translateX(-50%);
+            }
+            40% {
+                transform: translateY(-20px) translateX(-50%);
+            }
+            60% {
+                transform: translateY(-10px) translateX(-50%);
+            }
+        }
+        
+        /* Roadmap Styles */
+        .roadmap {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            position: relative;
+        }
+        
+        .roadmap:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 4px;
+            background: linear-gradient(to bottom, #ff9a9e, #fad0c4, #fad0c4, #a1c4fd);
+            transform: translateX(-50%);
+            z-index: 0;
+        }
+        
+        .roadmap-item {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            margin: 30px 0;
+            padding: 0;
+            width: 80%;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        
+        .roadmap-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .roadmap-item:nth-child(odd) {
+            background: linear-gradient(to right, #ffffff, #f8f9fa);
+            border-left: 5px solid #ff9a9e;
+        }
+        
+        .roadmap-item:nth-child(even) {
+            background: linear-gradient(to left, #ffffff, #f8f9fa);
+            border-right: 5px solid #a1c4fd;
+        }
+        
+        .slideshow-container {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+            border-radius: 12px 12px 0 0;
+        }
+        
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .slide.active {
+            opacity: 1;
+        }
+        
+        .content {
+            padding: 20px;
+        }
+        
+        .roadmap-item h3 {
+            margin-top: 10px;
+            color: #333;
+            font-size: 1.5rem;
+        }
+        
+        .roadmap-item p {
+            color: #666;
+        }
+        
+        .details {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px dashed #ddd;
+        }
+        
+        .detail-item {
+            text-align: center;
+        }
+        
+        .detail-item span {
+            display: block;
+            font-size: 0.9rem;
+            color: #888;
+        }
+        
+        .detail-item strong {
+            font-size: 1.1rem;
+            color: #444;
+        }
+        
+        footer {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+        
+        .highlight-item {
+            margin: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            width: calc(33.33% - 20px);
+        }
+        
+        .highlight-item strong {
+            font-size: 1.2rem;
+            color: #333;
+        }
+        
+        .highlight-item span {
+            font-size: 1rem;
+            color: #666;
+        }
+        
+        .intro-text {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 30px;
+            text-align: center;
+            font-style: italic;
+        }
+        
+        /* Trek Info Styles */
+        .trek-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .trek-info-container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            margin: 30px 0;
+            padding: 20px;
+            width: 80%;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        
+        .trek-info-nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            position: sticky;
+            top: 0;
+            background: white;
+            z-index: 100;
+            transition: all 0.3s ease;
+        }
+        
+        .trek-info-nav.scrolled {
+            justify-content: flex-start;
+            padding-left: 60px;
+        }
+        
+        .tab-btn {
+            background: none;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: #555;
+            margin: 0 5px;
+            border-radius: 0;
+            font-weight: 500;
+            position: relative;
+        }
+        
+        .tab-btn:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            bottom: 0;
+            left: 50%;
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        
+        .tab-btn.active {
+            color: #2575fc;
+            font-weight: 600;
+        }
+        
+        .tab-btn.active:after {
+            width: 80%;
+            background: #2575fc;
+        }
+        
+        .tab-btn:hover:after {
+            width: 60%;
+        }
+        
+        .hamburger-menu {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 101;
+            width: 30px;
+            height: 24px;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .hamburger-menu span {
+            display: block;
+            width: 100%;
+            height: 3px;
+            background: #555;
+            margin: 4px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .hamburger-menu span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px 0;
+            background: #555;
+            transition: all 0.3s ease;
+        }
+        
+        .trek-info-nav.scrolled .hamburger-menu {
+            display: block;
+        }
+        
+        .trek-info-nav.scrolled .tab-btn {
+            transform: translateX(0);
+            opacity: 1;
+        }
+        
+        .trek-info-nav.menu-open .hamburger-menu span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        
+        .trek-info-nav.menu-open .hamburger-menu span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .trek-info-nav.menu-open .hamburger-menu span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+        
+        .tab-content {
+            padding: 20px 0;
+        }
+        
+        .tab-pane {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .tab-pane.active {
+            display: block;
+        }
+        
+        .tab-btn.active {
+            background: none;
+            color: #2575fc;
+        }
+        
+        .inclusion-box {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .inclusion-column {
+            flex: 1;
+            background: #f9f9f9;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .inclusion-column h3 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        
+        .inclusion-column ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .inclusion-column li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+        }
+        
+        .inclusion-column li:before {
+            content: '✓';
+            color: #27ae60;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+        
+        .tips-section {
+            background: #f9f9f9;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .tips-section h3 {
+            color: #2c3e50;
+            border-bottom: 2px solid #e74c3c;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .tab-pane {
+            display: none;
+        }
+        
+        .tab-pane.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .monastery-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 24px;
+            margin-bottom: 2rem;
+            justify-content: center;
+        }
+        
+        .monastery-img {
+            width: 160px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        
+        /* Trek Info Overview Styles */
+        .trek-info {
+            padding: 60px 20px;
+            background: white;
+        }
+        
+        .trek-info h2 {
+            text-align: center;
+            color: #2c3e50;
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto 40px;
+        }
+        
+        .info-item {
+            background: #f8f9fa;
+            padding: 25px 15px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .info-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .info-item span {
+            display: block;
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .info-item strong {
+            font-size: 1.5rem;
+            color: #2c3e50;
+            font-weight: 700;
+        }
+        
+        /* Equipment Section */
+        .equipment {
+            padding: 40px 20px;
+            background: #f8f9fa;
+            text-align: center;
+        }
+        
+        .equipment h2 {
+            color: #2c3e50;
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .equipment-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .equipment-item {
+            background: white;
+            padding: 20px 15px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            font-size: 1rem;
+            color: #444;
+            transition: all 0.3s ease;
+        }
+        
+        .equipment-item:hover {
+            background: #f0f7ff;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        @media (max-width: 768px) {
+            .info-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 15px;
+                padding: 0 15px;
+            }
+            
+            .equipment-grid {
+                grid-template-columns: 1fr 1fr;
+                padding: 0 15px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .info-grid,
+            .equipment-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .trek-info h2,
+            .equipment h2 {
+                font-size: 1.8rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .trek-info-nav {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 10px 0 10px 50px;
+                background: white;
+                position: relative;
+            }
+            
+            .trek-info-nav.scrolled {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                background: white;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+                z-index: 1000;
+            }
+            
+            .hamburger-menu {
+                display: block;
+                position: absolute;
+                left: 10px;
+                top: 10px;
+                transform: none;
+            }
+            
+            .tab-btn {
+                display: none;
+                width: 100%;
+                text-align: left;
+                padding: 12px 20px;
+                margin: 0;
+                border-radius: 0;
+                border-bottom: 1px solid #f0f0f0;
+                font-size: 1rem;
+                transition: all 0.3s ease;
+            }
+            
+            .tab-btn:hover {
+                background: #f8f9fa;
+                color: #2575fc;
+            }
+            
+            .tab-btn.active {
+                color: #2575fc;
+                font-weight: 600;
+                background: #f8f9fa;
+            }
+            
+            .trek-info-nav.menu-open {
+                padding-top: 50px;
+            }
+            
+            .trek-info-nav.menu-open .tab-btn {
+                display: block;
+                opacity: 1;
+                transform: translateX(0);
+            }
+            
+            .trek-info-container {
+                width: 95%;
+                margin: 15px auto;
+            }
+            
+            .monastery-item {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .monastery-img {
+                width: 100%;
+                max-width: 320px;
+                height: auto;
+            }
+        }
+        
+        .main-menu-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            padding: 5px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .main-menu-btn span {
+            display: block;
+            width: 30px;
+            height: 3px;
+            background-color: white;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+        }
+        
+        .main-menu-btn.open span:nth-child(1) {
+            transform: rotate(45deg) translate(7px, 7px);
+        }
+        
+        .main-menu-btn.open span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .main-menu-btn.open span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+        
+        .main-nav {
+            position: fixed;
+            top: 0;
+            right: -300px;
+            width: 300px;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 999;
+            transition: right 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            padding-top: 80px;
+        }
+        
+        .main-nav.open {
+            right: 0;
+        }
+        
+        .main-nav a {
+            color: white;
+            text-decoration: none;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+        }
+        
+        .main-nav a:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-left: 4px solid #2575fc;
+        }
+        
+        /* Trek Overview Styles */
+        .trek-overview {
+            padding: 60px 0;
+            background-color: #fff;
+        }
+        
+        .trek-overview .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .trek-overview h2 {
+            text-align: center;
+            color: #2c3e50;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .trek-overview h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, #2575fc, #6a11cb);
+        }
+        
+        .overview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+        
+        .overview-item {
+            background: #fff;
+            border-radius: 10px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #f0f0f0;
+        }
+        
+        .overview-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+        
+        .overview-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .overview-item h3 {
+            color: #2c3e50;
+            margin: 0 0 10px;
+            font-size: 1.2rem;
+        }
+        
+        .overview-item p {
+            color: #7f8c8d;
+            margin: 0;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+        
+        .overview-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .overview-content h3 {
+            color: #2c3e50;
+            margin: 30px 0 15px;
+            font-size: 1.5rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .overview-content h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: linear-gradient(90deg, #2575fc, #6a11cb);
+        }
+        
+        .overview-content p {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        
+        .overview-content ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0 0 25px;
+        }
+        
+        .overview-content ul li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 10px;
+            color: #555;
+            line-height: 1.6;
+        }
+        
+        .overview-content ul li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #27ae60;
+            font-weight: bold;
+        }
+        
+        @media (max-width: 768px) {
+            .overview-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .trek-overview h2 {
+                font-size: 2rem;
+            }
+            
+            .overview-content h3 {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section with Slideshow -->
+    <section class="hero">
+        <div class="hero-slideshow">
+            <div class="hero-slide active" style="background-image: url('https://images.unsplash.com/photo-1515876305430-f06edab8282a?auto=format&fit=crop&q=80');"></div>
+            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&q=80');"></div>
+            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80');"></div>
+        </div>
+        <div class="hero-overlay">
+            <div class="hero-content">
+                <h1>Markha Valley Trek</h1>
+                <p>A 5-day adventure through the stunning Markha Valley in Ladakh, India</p>
+            </div>
+        </div>
+        <div class="scroll-down">
+            Scroll Down ↓
+        </div>
+    </section>
+
+   
+
+           
+        </div>
+    </section>
+    
+    <section class="roadmap">
+        <!-- Day 1 -->
+        <div class="roadmap-item">
+            <div class="slideshow-container">
+                <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1593939535589-8356e421b3cc?auto=format&fit=crop&q=80');"></div>
+            </div>
+            <div class="content">
+                <h3>Day 1: Leh to Sara</h3>
+                <p>Morning drive to Sara and camp overnight. This is your first campsite where you'll spend the rest of the day acclimatizing with light walks around the area.</p>
+                <div class="details">
+                    <div class="detail-item">
+                        <span>Altitude</span>
+                        <strong>3619m</strong>
+                    </div>
+                    <div class="detail-item">
+                        <span>Activity</span>
+                        <strong>Drive & Camp</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Day 2 -->
+        <div class="roadmap-item">
+            <div class="slideshow-container">
+                <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1515876305430-f06edab8282a?auto=format&fit=crop&q=80');"></div>
+            </div>
+            <div class="content">
+                <h3>Day 2: Sara to Markha</h3>
+                <p>Today is a pleasant hike up the Markha valley. Visit the old monastery and the ruined fort. Trek along the scenic Markha River, crossing it several times over makeshift wooden bridges.</p>
+                <div class="details">
+                    <div class="detail-item">
+                        <span>Altitude</span>
+                        <strong>3760m</strong>
+                    </div>
+                    <div class="detail-item">
+                        <span>Distance</span>
+                        <strong>8 km</strong>
+                    </div>
+                    <div class="detail-item">
+                        <span>Duration</span>
+                        <strong>4 hours</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Day 3 -->
+        <div class="roadmap-item">
+            <div class="slideshow-container">
+                <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?auto=format&fit=crop&q=80');"></div>
+            </div>
+            <div class="content">
+                <h3>Day 3: Markha to Hankar</h3>
+                <p>Walk along the river and visit Techa gompa which is built on a cliff near Umlung village. After leaving Umlung, you'll catch your first view of Kangyatse Peak (6,400m).</p>
+                <div class="details">
+                    <div class="detail-item">
+                        <span>Altitude</span>
+                        <strong>4030m</strong>
+                    </div>
+                    <div class="detail-item">
+                        <span>Distance</span>
+                        <strong>11 km</strong>
+                    </div>
+                    <div class="detail-item">
+                        <span>Duration</span>
+                        <strong>5 hours</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Day 4 -->
+        <div class="roadmap-item">
+            <div class="slideshow-container">
+                <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1486870591958-9b9d0d1dda99?auto=format&fit=crop&q=80');"></div>
+            </div>
+            <div class="content">
+                <h3>Day 4: Hankar to Nimaling</h3>
+                <p>The path from Hankar leads you to Nimaling, which is the summer grazing ground for the cattle. This is the highest campsite of the trek, offering stunning views of Kangyatse.</p>
+                <div class="details">
+                    <div class="detail-item">
+                        <span>Altitude</span>
+                        <strong>4841m</strong>
+                    </div>
+                    <div class="detail-item">
+                        <span>Distance</span>
+                        <strong>11 km</strong>
+                    </div>
+                    <div class="detail-item">
+                        <span>Duration</span>
+                        <strong>6 hours</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Day 5 -->
+        <div class="roadmap-item">
+            <div class="slideshow-container">
+                <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1580181474065-9a7b2e0ed910?auto=format&fit=crop&q=80');"></div>
+            </div>
+            <div class="content">
+                <h3>Day 5: Nimaling to Chokdo</h3>
+                <p>Ascend Kongmarula and enjoy views of Kangyatse peaks. Then descend till Chokdo and drive to Leh. This is the most challenging but rewarding day of the trek.</p>
+                <div class="details">
+                    <div class="detail-item">
+                        <span>Pass Height</span>
+                        <strong>5260m</strong>
+                    </div>
+                    <div class="detail-item">
+                        <span>Distance</span>
+                        <strong>17 km</strong>
+                    </div>
+                    <div class="detail-item">
+                        <span>Duration</span>
+                        <strong>8 hours</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="trek-info">
+        <h2>TREK OVERVIEW</h2>
+        <div class="info-grid">
+            <div class="info-item">
+                <span>Total Distance</span>
+                <strong>65 km</strong>
+            </div>
+            <div class="info-item">
+                <span>Max Elevation</span>
+                <strong>5,260m</strong>
+            </div>
+            <div class="info-item">
+                <span>Total Elevation Gain</span>
+                <strong>+1,641m</strong>
+            </div>
+            <div class="info-item">
+                <span>Total Elevation Loss</span>
+                <strong>-1,200m</strong>
+            </div>
+        </div>
+    </section>
+    
+    <section class="equipment">
+        <h2 align="center">CAMPING EQUIPMENT PROVIDED</h2>
+        <div class="equipment-grid">
+            <div class="equipment-item">Dining and Kitchen Tent</div>
+            <div class="equipment-item">Sleeping Bags</div>
+            <div class="equipment-item">2 Men Tents</div>
+            <div class="equipment-item">Mattresses</div>
+            <div class="equipment-item">Walking Sticks</div>
+            <div class="equipment-item">Toilet Tent</div>
+        </div>
+    </section>
+
+    <section class="trek-info">
+        <div class="trek-info-container">
+            <div class="trek-info-nav" id="trekInfoNav">
+                <button class="tab-btn active" onclick="openTab('inclusions', event)">Inclusions & Exclusions</button>
+                <button class="tab-btn" onclick="openTab('gear', event)">Trekking Gear</button>
+                <button class="tab-btn" onclick="openTab('tips', event)">Travel Tips</button>
+                <button class="hamburger-menu" id="hamburgerMenu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+            
+            <div class="tab-content">
+                <!-- Inclusions Tab -->
+                <div id="inclusions" class="tab-pane active">
+                    <h2 align="center">TREKKING INCLUSIONS</h2>
+                    <p class="intro-text" align="center">Our camping trips are full-service, with tents, sleeping pads, our dining tent, kitchen tent, all supplies and food, ponies and fantastic staff and guides. Enjoy the adventure.</p>
+                    
+                    <div class="inclusion-box">
+                        <div class="inclusion-column">
+                            <h3 style="color: #2575fc;">INCLUDES</h3>
+                            <ul>
+                                <li>2 Men Tents with camping mattresses on Twin share basis</li>
+                                <li>Sleeping bag</li>
+                                <li>Kitchen tent cum dining tent with all meals</li>
+                                <li>Indian, Chinese & Continental Meals will be freshly prepared</li>
+                                <li>Transfers for drop and pickup for the trek</li>
+                                <li>Day 1: Pack Lunch will be provided for the trek</li>
+                                <li>High Altitude meal: We will use tin packed food in high altitude</li>
+                                <li>Professional expedition guide, kitchen, and other support staff</li>
+                                <li>Trekking and Camping Fees</li>
+                                <li>Ponies for the entire trek</li>
+                                <li>Medical kit and Oxygen cylinder support for the entire trek</li>
+                            </ul>
+                        </div>
+                        <div class="inclusion-column">
+                            <h3 style="color: #2575fc;">EXCLUDES</h3>
+                            <ul>
+                                <li>Adventure insurance</li>
+                                <li>Individual Trekking Gears and clothing</li>
+                                <li>Special individual mountain diet if any</li>
+                                <li>Anything not specifically mentioned in inclusions</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Gear Tab -->
+                <div id="gear" class="tab-pane">
+                    <h2 align="center">TREKKING GEAR</h2>
+                    <p class="intro-text" align="center">The following list only mentions the essentials. You must prepare a list of clothes and small personal articles you will need during the trek:</p>
+                    
+                    <div class="inclusion-box">
+                        <div class="inclusion-column">
+                            <ul>
+                                <li>Sleeping bag</li>
+                                <li>Hiking shoes</li>
+                                <li>Camp shoes/sneakers / sandals / Socks</li>
+                                <li>Light wind jacket</li>
+                                <li>Down jacket/vest</li>
+                                <li>Fleece jacket/vest</li>
+                                <li>T-shirts</li>
+                                <li>Trekking pants</li>
+                                <li>Thermal tops</li>
+                                <li>Thermal bottom</li>
+                                <li>Warm hat</li>
+                                <li>Sun hat/baseball cap</li>
+                            </ul>
+                        </div>
+                        <div class="inclusion-column">
+                            <ul>
+                                <li>Light gloves</li>
+                                <li>Duffel bag</li>
+                                <li>Sunglasses</li>
+                                <li>Torch/Headlamp</li>
+                                <li>Camera and Film</li>
+                                <li>Lip balm / Sunscreen</li>
+                                <li>Camp towel/towel / Toiletries</li>
+                                <li>Personal medicines</li>
+                                <li>Money pouch/belt</li>
+                                <li>Bandana/scarf</li>
+                                <li>Camera - bring spare batteries or solar charger</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Tips Tab -->
+                <div id="tips" class="tab-pane">
+                    <h2 align="center">TRAVEL TIPS</h2>
+                    
+                    <div class="tips-section">
+                        <h3 align="center" style="color: #2575fc;">ACCLIMATIZATION</h3>
+                        <p>Most of Ladakh and areas beyond Sarchu is at an altitude of more than 3000m so you need to get acclimatized before you can set out to travel. Your body needs to adapt to high altitude, as the higher you go, the air becomes rarified and the oxygen available for you to breathe becomes lesser. Even though your body can adapt to 'thin air', you need to give it time to do so. This is what is called acclimatization.</p>
+                        <p>Acclimatization is essential to avoid acute mountain sickness (AMS). The symptoms include headache, lethargy, dizziness, and loss of appetite. You must allow a full day of complete bed rest for acclimatizing to the high altitude and low level of oxygen. High altitude sickness or Acute Mountain Sickness (AMS) is a serious condition that can happen to anyone at altitudes above 3000 meters or 10000 feet.</p>
+                        <p>Keep yourself hydrated all the time, drink water and don't experiment with Alcohol on first two days.</p>
+                    </div>
+                    
+                    <div class="tips-section">
+                        <h3 align="center" style="color: #2575fc;">HEALTH</h3>
+                        <p>Travel to any part of the Himalayas deserves a little more respect than many other destinations because the whole region lies over 3000 meters. People in good health should not get alarmed by this but if you have a medical condition such as high blood pressure, heart, or lung disease, you must take the advice of a doctor who has experience with the effects of altitude. We do not take heart or lung patients or pregnant mothers on this expedition. Any kind of exercise which gets you fitter before this trip is advisable, as it will enable you to enjoy more.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <button class="main-menu-btn" id="mainMenuBtn">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <script>
+        function openTab(tabName, event) {
+            const tabPanes = document.getElementsByClassName('tab-pane');
+            const tabBtns = document.getElementsByClassName('tab-btn');
+            
+            for (let pane of tabPanes) {
+                pane.classList.remove('active');
+            }
+            
+            for (let btn of tabBtns) {
+                btn.classList.remove('active');
+            }
+            
+            document.getElementById(tabName).classList.add('active');
+            event.currentTarget.classList.add('active');
+            
+            document.querySelector('.trek-info-container').scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        // Mobile menu toggle
+        const hamburgerMenu = document.getElementById('hamburgerMenu');
+        const trekInfoNav = document.getElementById('trekInfoNav');
+        
+        hamburgerMenu.addEventListener('click', function() {
+            trekInfoNav.classList.toggle('menu-open');
+            
+            // Toggle between hamburger and close icon
+            if (trekInfoNav.classList.contains('menu-open')) {
+                // Menu is open, show close icon
+                hamburgerMenu.innerHTML = '&#10005;'; // Close icon (×)
+                hamburgerMenu.style.fontSize = '24px';
+                hamburgerMenu.style.lineHeight = '24px';
+            } else {
+                // Menu is closed, show hamburger icon
+                hamburgerMenu.innerHTML = '<span></span><span></span><span></span>';
+            }
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!trekInfoNav.contains(event.target) && !hamburgerMenu.contains(event.target)) {
+                trekInfoNav.classList.remove('menu-open');
+                hamburgerMenu.innerHTML = '<span></span><span></span><span></span>';
+            }
+        });
+
+        // Make menu sticky on scroll
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 100) {
+                trekInfoNav.classList.add('scrolled');
+            } else {
+                trekInfoNav.classList.remove('scrolled');
+            }
+        });
+
+        // Slideshow functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const slides = document.querySelectorAll('.hero-slide');
+            if (slides.length > 0) {
+                let currentSlide = 0;
+                
+                function nextSlide() {
+                    slides[currentSlide].classList.remove('active');
+                    currentSlide = (currentSlide + 1) % slides.length;
+                    slides[currentSlide].classList.add('active');
+                }
+                
+                setInterval(nextSlide, 5000);
+            }
+        });
+    </script>
+</body>
+</html>
