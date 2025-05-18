@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kanji to Pishu Trek Roadmap</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="test_style.css">
     <style>
         body {
             font-family: 'Montserrat', sans-serif;
@@ -160,26 +161,17 @@
             border-right: 5px solid #a1c4fd;
         }
         
-        .slideshow-container {
-            position: relative;
+        .image-container {
             width: 100%;
             height: 300px;
             overflow: hidden;
             border-radius: 12px 12px 0 0;
         }
         
-        .slide {
-            position: absolute;
+        .image-container img {
             width: 100%;
             height: 100%;
-            opacity: 0;
-            transition: opacity 1s ease-in-out;
-            background-size: cover;
-            background-position: center;
-        }
-        
-        .slide.active {
-            opacity: 1;
+            object-fit: cover;
         }
         
         .content {
@@ -648,9 +640,10 @@
     <!-- Hero Section with Slideshow -->
     <section class="hero">
         <div class="hero-slideshow">
-            <div class="hero-slide active" style="background-image: url('images/kashi1.jpg');"></div>
-            <div class="hero-slide" style="background-image: url('images/kashi2.jpg');"></div>
-            <div class="hero-slide" style="background-image: url('images/kashi3.jpg');"></div>
+            <div class="hero-slide active" style="background-image: url('https://images.unsplash.com/photo-1593939535589-8356e421b3cc?auto=format&fit=crop&q=80');"></div>
+            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&q=80');"></div>
+            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1515876305430-f06edab8282a?auto=format&fit=crop&q=80');"></div>
+            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1626017334524-bb0ac350d868?auto=format&fit=crop&q=80');"></div>
         </div>
         <div class="hero-overlay">
             <div class="hero-content">
@@ -666,9 +659,8 @@
     <section class="roadmap">
         <!-- Day 1 -->
         <div class="roadmap-item">
-            <div class="slideshow-container">
-                <div class="slide active" style="background-image: url('images/kashi4.jpg');"></div>
-                <div class="slide" style="background-image: url('images/kashi5.jpg');"></div>
+            <div class="image-container">
+                <img src="images/k1.jpg" alt="Day 1 - Trek Start and Camp Setup">
             </div>
             <div class="content">
                 <h3>Day 1: Leh to Kanji</h3>
@@ -692,9 +684,8 @@
         
         <!-- Day 2 -->
         <div class="roadmap-item">
-            <div class="slideshow-container">
-                <div class="slide active" style="background-image: url('images/kashi6.jpg');"></div>
-                <div class="slide" style="background-image: url('images/kashi7.jpg');"></div>
+            <div class="image-container">
+                <img src="images/k2.jpg" alt="Day 2 - Mountain Pass and High Camp">
             </div>
             <div class="content">
                 <h3>Day 2: Kanji to Kanji la BC</h3>
@@ -718,9 +709,8 @@
         
         <!-- Day 3 -->
         <div class="roadmap-item">
-            <div class="slideshow-container">
-                <div class="slide active" style="background-image: url('images/kashi8.jpg');"></div>
-                <div class="slide" style="background-image: url('images/kashi9.jpg');"></div>
+            <div class="image-container">
+                <img src="images/k3.jpg" alt="Day 3 - Alpine Lakes and Meadows">
             </div>
             <div class="content">
                 <h3>Day 3: Kanji la BC to Kanji la Pass</h3>
@@ -744,9 +734,8 @@
         
         <!-- Day 4 -->
         <div class="roadmap-item">
-            <div class="slideshow-container">
-                <div class="slide active" style="background-image: url('images/kashi10.jpg');"></div>
-                <div class="slide" style="background-image: url('images/kashi11.jpg');"></div>
+            <div class="image-container">
+                <img src="images/k4.jpg" alt="Day 4 - Final Descent and Return">
             </div>
             <div class="content">
                 <h3>Day 4: Kanji la BC to Dipling</h3>
@@ -770,9 +759,8 @@
         
         <!-- Day 5 -->
         <div class="roadmap-item">
-            <div class="slideshow-container">
-                <div class="slide active" style="background-image: url('images/kashi12.jpg');"></div>
-                <div class="slide" style="background-image: url('images/kashi13.jpg');"></div>
+            <div class="image-container">
+                <img src="images/k5.jpg" alt="Day 5 - Village Visit and Monastery">
             </div>
             <div class="content">
                 <h3>Day 5: Dipling to Lingshed Sumdo</h3>
@@ -797,9 +785,8 @@
         <!-- Days 6-10 follow the same pattern -->
         <!-- Day 6 -->
         <div class="roadmap-item">
-            <div class="slideshow-container">
-                <div class="slide active" style="background-image: url('images/kashi14.jpg');"></div>
-                <div class="slide" style="background-image: url('images/kashi15.jpg');"></div>
+            <div class="image-container">
+                <img src="images/k6.jpg" alt="Day 6 - Monastery Visit and Long Hike">
             </div>
             <div class="content">
                 <h3>Day 6: Lingshed Sumdo to Lingshed</h3>
@@ -823,9 +810,8 @@
         
         <!-- Day 7 -->
         <div class="roadmap-item">
-            <div class="slideshow-container">
-                <div class="slide active" style="background-image: url('images/kashi16.jpg');"></div>
-                <div class="slide" style="background-image: url('images/kashi17.jpg');"></div>
+            <div class="image-container">
+                <img src="images/k7.jpg" alt="Day 7 - Steep Pass and Beautiful Views">
             </div>
             <div class="content">
                 <h3>Day 7: Lingshed to Snetse</h3>
@@ -849,9 +835,8 @@
         
         <!-- Day 8 -->
         <div class="roadmap-item">
-            <div class="slideshow-container">
-                <div class="slide active" style="background-image: url('images/kashi18.jpg');"></div>
-                <div class="slide" style="background-image: url('images/kashi19.jpg');"></div>
+            <div class="image-container">
+                <img src="images/k8.jpg" alt="Day 8 - Beautiful Valley and Camp">
             </div>
             <div class="content">
                 <h3>Day 8: Snetse to Hanumal</h3>
@@ -875,9 +860,8 @@
         
         <!-- Day 9 -->
         <div class="roadmap-item">
-            <div class="slideshow-container">
-                <div class="slide active" style="background-image: url('images/kashi20.jpg');"></div>
-                <div class="slide" style="background-image: url('images/kashi21.jpg');"></div>
+            <div class="image-container">
+                <img src="images/k9.jpg" alt="Day 9 - River Crossing and Village Visit">
             </div>
             <div class="content">
                 <h3>Day 9: Hanumal to Pishu</h3>
@@ -901,9 +885,8 @@
         
         <!-- Day 10 -->
         <div class="roadmap-item">
-            <div class="slideshow-container">
-                <div class="slide active" style="background-image: url('images/kashi22.jpg');"></div>
-                <div class="slide" style="background-image: url('images/kashi23.jpg');"></div>
+            <div class="image-container">
+                <img src="images/k10.jpg" alt="Day 10 - Return Journey to Leh">
             </div>
             <div class="content">
                 <h3>Day 10: Pishu to Leh</h3>
@@ -1080,10 +1063,6 @@
         <a href="#">Contact</a>
     </nav>
     
-    <footer>
-        <p>&copy; 2025 EXPLORERS. All rights reserved.</p>
-    </footer>
-    
     <script>
         // Slideshow functionality for hero section
         document.addEventListener('DOMContentLoaded', function() {
@@ -1099,30 +1078,6 @@
             
             setInterval(showNextHeroSlide, 4000); // Change hero slide every 4 seconds
             
-            // Roadmap slideshows
-            const slideshowContainers = document.querySelectorAll('.slideshow-container');
-            
-            slideshowContainers.forEach(container => {
-                const slides = container.querySelectorAll('.slide');
-                let currentSlide = 0;
-                
-                function showNextSlide() {
-                    slides[currentSlide].classList.remove('active');
-                    currentSlide = (currentSlide + 1) % slides.length;
-                    slides[currentSlide].classList.add('active');
-                }
-                
-                setInterval(showNextSlide, 3000); // Change slide every 3 seconds
-            });
-            
-            // Scroll down functionality
-            document.querySelector('.scroll-down').addEventListener('click', function() {
-                window.scrollTo({
-                    top: window.innerHeight,
-                    behavior: 'smooth'
-                });
-            });
-            
             // Trek info tab functionality
             function openTab(tabName) {
                 const tabContent = document.querySelectorAll('.tab-pane');
@@ -1131,11 +1086,9 @@
                 tabContent.forEach(tab => {
                     tab.classList.remove('active');
                 });
-                
                 tabButtons.forEach(button => {
                     button.classList.remove('active');
                 });
-                
                 document.getElementById(tabName).classList.add('active');
                 document.querySelector(`[onclick="openTab('${tabName}')"]`).classList.add('active');
             }
@@ -1169,5 +1122,6 @@
             window.openTab = openTab;
         });
     </script>
+
 </body>
 </html>
