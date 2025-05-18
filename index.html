@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EXPLORERS - Travel & Tours</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="test_style.css">
     <style>
         .team-card {
             background: white;
@@ -16,6 +18,68 @@
             margin-bottom: 20px;
             position: relative;
             z-index: 1;
+        }
+
+        .footer-section {
+            margin-bottom: 60px;
+            padding: 30px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 30px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: flex-end;
+            gap: 30px;
+            margin-top: auto;
+            padding-right: 100px;
+            margin-left: auto;
+        }
+
+        .footer-section.address-section {
+            margin-left: auto;
+            padding-left: 100px;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 24px;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #ff4500;
+        }
+
+        .copyable-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .copy-button {
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            padding: 5px;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        .copy-button:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .copy-button i {
+            font-size: 14px;
+        }
+
+        .copy-button.success {
+            color: #4CAF50;
         }
 
         .team-card:hover {
@@ -838,25 +902,69 @@
             <div class="footer-section">
                 <h4>Contact Us</h4>
                 <ul>
-                    <li><a href="#">+91 9810564360</a></li>
-                    <li><a href="#">+91 9622235488</a></li>
-                    <li><a href="#">pankaj.ladakhsafari@gmail.com</a></li>
-                    <li><a href="#">deleks.ladakhsafari@gmail.com</a></li>
+                    <li>
+                        <div class="copyable-item">
+                            <a href="tel:+919810564360">+91 9810564360</a>
+                            <button class="copy-button" data-text="+91 9810564360">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="copyable-item">
+                            <a href="tel:+919622235488">+91 9622235488</a>
+                            <button class="copy-button" data-text="+91 9622235488">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="copyable-item">
+                            <a href="mailto:pankaj.ladakhsafari@gmail.com">pankaj.ladakhsafari@gmail.com</a>
+                            <button class="copy-button" data-text="pankaj.ladakhsafari@gmail.com">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="copyable-item">
+                            <a href="mailto:deleks.ladakhsafari@gmail.com">deleks.ladakhsafari@gmail.com</a>
+                            <button class="copy-button" data-text="deleks.ladakhsafari@gmail.com">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                    </li>
                 </ul>
             </div>
-            <div class="footer-section">
+            <div class="footer-section address-section">
                 <h4>Address</h4>
-                <p>Leh Office: </p>
+                <p>Leh Office: S6, Raku Complex, Fort Rd, Leh, Ladakh 194101</p>
                 <p>Branch Office: Shop No. 31, Sab Mall, Sector-27 NOIDA</p>
-                
+            </div>
+            <div class="footer-section social-links-section">
+                <div class="social-links">
+                    <a href="https://www.facebook.com/ladakhsafari" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/ladakhsafari" target="_blank"><i class="fab fa-instagram"></i></a>
+                </div>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2025 EXPLORERS. All rights reserved.</p>
+            <p>&copy; 2025 Ladakh Safari. All rights reserved.</p>
         </div>
     </footer>
 
     <script>
+        // Copy functionality
+        document.querySelectorAll('.copy-button').forEach(button => {
+            button.addEventListener('click', function() {
+                const text = this.getAttribute('data-text');
+                navigator.clipboard.writeText(text).then(() => {
+                    this.classList.add('success');
+                    setTimeout(() => this.classList.remove('success'), 1000);
+                });
+            });
+        });
+
         const carousel = document.getElementById('destinationCarousel');
         const prevBtn = document.getElementById('carouselPrev');
         const nextBtn = document.getElementById('carouselNext');
