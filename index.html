@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="test_style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <style>
         .team-card {
             background: white;
@@ -624,16 +625,26 @@
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background: rgba(255,255,255,0.9);
+            background: rgba(255,69,0,0.8);
             border: none;
-            font-size: 2.2rem;
+            font-size: 1.5rem;
             cursor: pointer;
             z-index: 2;
-            width: 44px;
-            height: 44px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.12);
-            transition: background 0.2s;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .carousel-arrow:hover {
+            background: rgba(255,69,0,1);
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.3);
         }
         .carousel-arrow:disabled {
             opacity: 0.3;
@@ -647,41 +658,223 @@
         @media (max-width: 600px) {
             .destination-card-link, .destination-card-link { flex-basis: 100%; max-width: 100%; }
         }
+        /* New interactive elements styles */
+        .floating-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 5;
+            overflow: hidden;
+        }
+        
+        .floating-element {
+            position: absolute;
+            font-size: 2.5rem;
+            color: rgba(255, 255, 255, 0.3);
+            pointer-events: auto;
+            cursor: pointer;
+            transition: transform 5s ease-in-out, color 0.3s ease;
+        }
+        
+        .animated-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(0,0,0,0.7), rgba(0,0,0,0.3));
+            z-index: -1;
+            animation: gradientBG 15s ease infinite;
+        }
+        
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        /* Logo to text animation */
+        .logo-container {
+            position: relative;
+        }
+        
+        .text-particle {
+            position: absolute;
+            background-color: white;
+            border-radius: 50%;
+            opacity: 0;
+            pointer-events: none;
+            animation: particleMove 1.5s forwards;
+        }
+        
+        @keyframes particleMove {
+            0% {
+                opacity: 0.8;
+                transform: translate(0, 0) scale(0.1);
+            }
+            100% {
+                opacity: 0;
+                transform: translate(var(--tx), var(--ty)) scale(0.5);
+            }
+        }
+        
+        .heading-reveal {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .heading-reveal h1 {
+            transform: translateY(100%);
+            opacity: 0;
+            animation: revealHeading 1s forwards;
+            animation-delay: 1s;
+        }
+        
+        @keyframes revealHeading {
+            0% {
+                transform: translateY(100%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .section-header h2 {
+            margin-bottom: 0.5rem;
+        }
+        
+        .section-header p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+        
+        .journey-icons {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            margin: 2rem 0;
+        }
+        
+        .icon-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: white;
+        }
+        
+        .icon-item i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .icon-item:hover i {
+            transform: translateY(-10px);
+        }
+        
+        .bounce {
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-20px); }
+            60% { transform: translateY(-10px); }
+        }
+        
+        .parallax-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('images/background.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.2;
+            z-index: -1;
+        }
     </style>
 </head>
 <body>
     <bg color="black"></bg>
+    <!-- Floating elements for visual interest -->
+    <div class="floating-elements">
+        <i class="fas fa-mountain floating-element" style="top: 15%; left: 10%;"></i>
+        <i class="fas fa-compass floating-element" style="top: 25%; left: 85%;"></i>
+        <i class="fas fa-map-marker-alt floating-element" style="top: 65%; left: 15%;"></i>
+        <i class="fas fa-route floating-element" style="top: 75%; left: 80%;"></i>
+        <i class="fas fa-campground floating-element" style="top: 45%; left: 50%;"></i>
+    </div>
     <!-- Hero Section -->
-    <header class="hero">
+    <header class="hero" id="home">
+        <div class="animated-bg"></div>
         <nav>
-            <div class="nav-container">
-                <div class="logo">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+            <div class="nav-container animate__animated animate__fadeInDown">
+                <div class="logo logo-container" id="animatedLogo">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="pulse-animation" id="logoSvg"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
                     <span>EXPLORERS</span>
                 </div>
                 <div class="nav-links">
-                    <a href="#home">Home</a>
-                    <a href="#journeys-intro">Journeys We Offer</a>
-                    <a href="activity.html" target="_blank">Activities</a>
-                    <a href="#team">Team</a>
-                    <a href="tnc.html" target="_blank">Terms and Conditions</a>
-                    <a href="about.html" target="_blank">About Us</a>
+                    <a href="#home" class="nav-link">Home</a>
+                    <a href="#journeys-intro" class="nav-link">Journeys We Offer</a>
+                    <a href="activity.html" target="_blank" class="nav-link">Activities</a>
+                    <a href="#team" class="nav-link">Team</a>
+                    <a href="tnc.html" target="_blank" class="nav-link">Terms and Conditions</a>
+                    <a href="about.html" target="_blank" class="nav-link">About Us</a>
                 </div>
             </div>
         </nav>
         <div class="hero-content">
-            <h1>Discover Your Next Adventure</h1>
-            <p>A journey to your deepest senses.</p>
-            <a href="#journeys-intro" class="start-journey-btn">Start Your Journey</a>
+            <div class="heading-reveal">
+                <h1 id="mainHeading">Discover Your Next Adventure</h1>
+            </div>
+            <p class="animate__animated animate__fadeInUp" style="animation-delay: 1.5s;">A journey to your deepest senses.</p>
+            <a href="#journeys-intro" class="start-journey-btn animate__animated animate__fadeInUp" style="animation-delay: 1.8s;">Start Your Journey</a>
         </div>
     </header>
 
     <!-- Journeys We Offer -->
     <section id="journeys-intro" class="full-screen-section">
-        <h2 class="section-title" align="center">Journeys We Offer</h2>
-        <div class="scroll-indicator">
+        <div class="parallax-bg"></div>
+        <h2 class="section-title animate__animated" data-animate="animate__fadeInUp" align="center">Journeys We Offer</h2>
+        <div class="journey-icons">
+            <div class="icon-item animate__animated" data-animate="animate__fadeInLeft" data-delay="0.2s">
+                <i class="fas fa-mountain"></i>
+                <span>Mountains</span>
+            </div>
+            <div class="icon-item animate__animated" data-animate="animate__fadeInUp" data-delay="0.4s">
+                <i class="fas fa-water"></i>
+                <span>Lakes</span>
+            </div>
+            <div class="icon-item animate__animated" data-animate="animate__fadeInRight" data-delay="0.6s">
+                <i class="fas fa-campground"></i>
+                <span>Camping</span>
+            </div>
+        </div>
+        <div class="scroll-indicator animate__animated animate__fadeIn" style="animation-delay: 1s;">
             <p>Scroll Down</p>
-            <div class="scroll-arrow">
+            <div class="scroll-arrow bounce">
                 <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M12 5v14M5 12l7 7 7-7"/>
                 </svg>
@@ -690,9 +883,13 @@
     </section>
 
     <section id="journeys" class="destinations scroll-reveal">
+        <div class="section-header animate__animated" data-animate="animate__fadeInUp">
+            <h2>Explore Our Destinations</h2>
+            <p>Discover the beauty of Ladakh through our carefully crafted journeys</p>
+        </div>
         <div class="destination-carousel-container">
-            <button class="carousel-arrow left" id="carouselPrev" aria-label="Previous">&#8592;</button>
-            <button class="carousel-arrow right" id="carouselNext" aria-label="Next">&#8594;</button>
+            <button class="carousel-arrow left" id="carouselPrev" aria-label="Previous"><i class="fas fa-arrow-left"></i></button>
+            <button class="carousel-arrow right" id="carouselNext" aria-label="Next"><i class="fas fa-arrow-right"></i></button>
             <div class="destination-carousel" id="destinationCarousel">
                 <a href="journey1.html" class="destination-card-link">
                     <div class="destination-card">
@@ -788,7 +985,10 @@
 
     <!--Team -->
     <section id="team" class="services">
-        <h2>Meet Our Team</h2>
+        <div class="section-header animate__animated" data-animate="animate__fadeInUp">
+            <h2>Meet Our Team</h2>
+            <p>The experts who will guide you through your adventure</p>
+        </div>
         <div class="services-grid">
             <div class="team-card">
                 <div class="team-image-container">
@@ -970,11 +1170,13 @@
         const nextBtn = document.getElementById('carouselNext');
         const cardLinks = document.querySelectorAll('.destination-card-link');
         let currentIndex = 0;
+        
         function getCardsPerView() {
             if(window.innerWidth <= 600) return 1;
             if(window.innerWidth <= 900) return 2;
             return 3;
         }
+        
         function updateCarousel() {
             const cardsPerView = getCardsPerView();
             const cardWidth = cardLinks[0].offsetWidth;
@@ -985,16 +1187,200 @@
             prevBtn.disabled = currentIndex === 0;
             nextBtn.disabled = currentIndex === maxIndex;
         }
+        
         prevBtn.addEventListener('click', () => {
             currentIndex--;
             updateCarousel();
         });
+        
         nextBtn.addEventListener('click', () => {
             currentIndex++;
             updateCarousel();
         });
+        
+        // Animate elements when they come into view
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.animate__animated');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const element = entry.target;
+                        const animationClass = element.getAttribute('data-animate');
+                        const delay = element.getAttribute('data-delay');
+                        
+                        if (delay) {
+                            element.style.animationDelay = delay;
+                        }
+                        
+                        if (animationClass) {
+                            element.classList.add(animationClass);
+                        }
+                        
+                        observer.unobserve(element);
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            elements.forEach(element => {
+                observer.observe(element);
+            });
+        };
+        
+        // Parallax effect for background
+        const parallaxEffect = () => {
+            const parallaxBg = document.querySelector('.parallax-bg');
+            if (parallaxBg) {
+                window.addEventListener('scroll', () => {
+                    const scrollPosition = window.pageYOffset;
+                    parallaxBg.style.transform = `translateY(${scrollPosition * 0.4}px)`;
+                });
+            }
+        };
+        
+        // Floating elements animation
+        const initFloatingElements = () => {
+            const floatingElements = document.querySelectorAll('.floating-element');
+            
+            floatingElements.forEach(element => {
+                // Random initial position within constraints
+                const randomX = Math.random() * 10 - 5; // -5 to 5
+                const randomY = Math.random() * 10 - 5; // -5 to 5
+                
+                // Set initial position
+                element.style.transform = `translate(${randomX}px, ${randomY}px)`;
+                
+                // Add hover effect
+                element.addEventListener('mouseenter', function() {
+                    this.style.color = 'rgba(255, 69, 0, 0.8)';
+                    this.style.transform = 'scale(1.2)';
+                    this.style.transition = 'all 0.3s ease';
+                });
+                
+                element.addEventListener('mouseleave', function() {
+                    this.style.color = 'rgba(255, 255, 255, 0.3)';
+                    this.style.transform = `translate(${randomX}px, ${randomY}px)`;
+                });
+                
+                // Create floating animation
+                setInterval(() => {
+                    const newX = Math.random() * 20 - 10; // -10 to 10
+                    const newY = Math.random() * 20 - 10; // -10 to 10
+                    element.style.transform = `translate(${newX}px, ${newY}px)`;
+                    element.style.transition = 'transform 5s ease-in-out';
+                }, 5000);
+            });
+        };
+        
+        // Smooth scrolling for navigation links
+        const initSmoothScrolling = () => {
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    
+                    if (href.startsWith('#')) {
+                        e.preventDefault();
+                        const targetId = href.substring(1);
+                        const targetElement = document.getElementById(targetId);
+                        
+                        if (targetElement) {
+                            window.scrollTo({
+                                top: targetElement.offsetTop - 80,
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+                });
+            });
+        };
+        
+        // Logo to text animation
+        const initLogoAnimation = () => {
+            const logo = document.getElementById('logoSvg');
+            const heading = document.getElementById('mainHeading');
+            
+            if (!logo || !heading) return;
+            
+            // Get positions
+            setTimeout(() => {
+                const logoRect = logo.getBoundingClientRect();
+                const headingRect = heading.getBoundingClientRect();
+                
+                // Create container for particles
+                const particlesContainer = document.createElement('div');
+                particlesContainer.className = 'particles-container';
+                particlesContainer.style.position = 'fixed';
+                particlesContainer.style.top = '0';
+                particlesContainer.style.left = '0';
+                particlesContainer.style.width = '100%';
+                particlesContainer.style.height = '100%';
+                particlesContainer.style.pointerEvents = 'none';
+                particlesContainer.style.zIndex = '999';
+                document.body.appendChild(particlesContainer);
+                
+                // Create particles
+                const particleCount = 30;
+                const logoX = logoRect.left + logoRect.width / 2;
+                const logoY = logoRect.top + logoRect.height / 2;
+                
+                for (let i = 0; i < particleCount; i++) {
+                    const particle = document.createElement('div');
+                    particle.className = 'text-particle';
+                    
+                    // Random size between 3px and 8px
+                    const size = 3 + Math.random() * 5;
+                    particle.style.width = `${size}px`;
+                    particle.style.height = `${size}px`;
+                    
+                    // Position at logo center
+                    particle.style.left = `${logoX}px`;
+                    particle.style.top = `${logoY}px`;
+                    
+                    // Calculate destination (heading area)
+                    const tx = headingRect.left + Math.random() * headingRect.width - logoX;
+                    const ty = headingRect.top + Math.random() * headingRect.height - logoY;
+                    
+                    // Set animation variables
+                    particle.style.setProperty('--tx', `${tx}px`);
+                    particle.style.setProperty('--ty', `${ty}px`);
+                    
+                    // Add delay
+                    particle.style.animationDelay = `${Math.random() * 0.5}s`;
+                    
+                    // Add to container
+                    particlesContainer.appendChild(particle);
+                }
+                
+                // Clean up particles after animation
+                setTimeout(() => {
+                    particlesContainer.remove();
+                }, 2500);
+                
+                // Add a glow effect to the logo during animation
+                logo.style.filter = 'drop-shadow(0 0 10px rgba(255, 255, 255, 0.8))';
+                logo.style.transition = 'filter 2s ease';
+                
+                // Remove glow after animation
+                setTimeout(() => {
+                    logo.style.filter = 'none';
+                }, 2000);
+                
+            }, 500);
+        };
+        
+        // Initialize everything when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            updateCarousel();
+            animateOnScroll();
+            parallaxEffect();
+            initFloatingElements();
+            initSmoothScrolling();
+            initLogoAnimation();
+        });
+        
         window.addEventListener('resize', updateCarousel);
-        window.addEventListener('DOMContentLoaded', updateCarousel);
     </script>
 </body>
 </html>
