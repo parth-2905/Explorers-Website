@@ -806,16 +806,17 @@
         }
         
         .parallax-bg {
-            position: absolute;
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            height: 100%;
-            background-image: url('images/background.jpg');
+            height: 100vh;
+            background-image: url('images/main 2nd.jpg');
             background-size: cover;
             background-position: center;
-            opacity: 0.2;
+            opacity: 1;
             z-index: -1;
+            background-attachment: fixed;
         }
 
         nav {
@@ -965,7 +966,7 @@
         <i class="fas fa-campground floating-element" style="top: 45%; left: 50%;"></i>
     </div>
     <!-- Hero Section -->
-    <header class="hero" id="home">
+    <header class="hero" id="home" style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/main 1st.jpg') center/cover no-repeat;">
         <div class="animated-bg"></div>
 
         <div class="hero-content">
