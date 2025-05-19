@@ -1803,6 +1803,13 @@
     </div>
 
     <script>
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+            }
+        }
+
         // Copy functionality
         document.querySelectorAll('.copy-button').forEach(button => {
             button.addEventListener('click', function() {
@@ -1813,8 +1820,6 @@
                 });
             });
         });
-
- 
 
         // Slideshow functionality
         let slideIndex = 0;
