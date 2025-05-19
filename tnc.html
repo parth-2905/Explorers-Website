@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <style>
            nav {
@@ -515,6 +515,8 @@
         
         .nav-container {
             display: flex;
+        }
+        
         footer {
             margin-top: 80px;
             background: linear-gradient(to right, #1a1a1a, #333);
@@ -789,21 +791,229 @@
         </div>
     </section>
 
+    <!-- Back to top button -->
+    <button class="back-to-top">
+        <svg viewBox="0 0 24 24" class="icon" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+    </button>
+    
+    <style>
+        footer {
+            background-color: #000000;
+            color: #ffffff;
+            padding: 3rem 2rem;
+        }
+
+        .footer-main {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            gap: 0.5rem;
+        }
+
+        .footer-brand {
+            flex: 1 1 250px;
+            margin-top: 40px;
+        }
+
+        .logo-row {
+            display: flex;
+            gap: 10px;
+            align-items: flex-end;
+            margin-bottom: 1rem;
+        }
+
+        .footer-brand img {
+            height: 40px;
+            object-fit: contain;
+            margin-top: 0;
+        }
+
+        .footer-brand p {
+            margin: 0.5rem 0;
+        }
+
+        .social-icons {
+            margin-top: 10px;
+        }
+
+        .social-icons a {
+            margin-right: 15px;
+            color: #ffffff;
+            font-size: 2rem;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: #dddddd;
+        }
+
+        .footer-section {
+            flex: 1 1 220px;
+            padding-left: 10px;
+        }
+
+        .footer-section h4 {
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: #ffffff;
+            text-align: left;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .footer-section ul a {
+            text-decoration: none;
+            color: #ffffff;
+            transition: color 0.3s;
+        }
+
+        .footer-section ul a:hover {
+            color: #dddddd;
+        }
+
+        .footer-section p {
+            color: #ffffff;
+            margin: 0.5rem 0;
+        }
+
+        .copy-icon {
+            margin-left: 8px;
+            cursor: pointer;
+            color: #ffffff;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        .copy-icon:hover {
+            color: #dddddd;
+        }
+
+        .inline-span {
+            display: inline-block;
+        }
+
+        .contact-section {
+            flex: 1 1 280px;
+        }
+
+        .address-section {
+            flex: 1 1 280px;
+            font-size: 0.92rem;
+            line-height: 1.4;
+            padding-left: 10px;
+            margin-left: 0;
+            max-width: none;
+        }
+
+        @media (max-width: 768px) {
+            .footer-main {
+                flex-direction: column;
+                align-items: center;
+            }
+            .footer-section,
+            .footer-brand {
+                text-align: center;
+            }
+            .footer-brand img {
+                margin: 0 10px;
+            }
+            .address-section {
+                margin-left: 0;
+                max-width: 100%;
+                text-align: center;
+            }
+            .address-section h4 {
+                text-align: center;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    
     <footer>
-        <div class="footer-content">
-            <div class="footer-logo">
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
-                <span>EXPLORERS</span>
+        <div class="footer-main">
+            <!-- Logo and Social -->
+            <div class="footer-brand">
+                <div class="logo-row">
+                    <img src="images/l1.jpg" alt="Logo 1" />
+                    <img src="images/l2.jpg" alt="Logo 2" />
+                    <img src="images/l3.jpg" alt="Logo 3" />
+                </div>
+                <p>Find us on social media</p>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/ladakhsafari" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/ladakhsafari" target="_blank"><i class="fab fa-facebook"></i></a>
+                </div>
             </div>
-            <div class="social-links">
-                <a href="#" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
-                <a href="#" aria-label="Twitter"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a>
-                <a href="#" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+
+            <!-- Quick Links -->
+            <div class="footer-section quick-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#journeys-intro">Journeys</a></li>
+                    <li><a href="activity.html">Activities</a></li>
+                    <li><a href="tnc.html">Terms</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Us -->
+            <div class="footer-section contact-section">
+                <h4>Contact Us</h4>
+                <ul>
+                    <li>
+                        <span id="num1">+91 9810564360</span>
+                        <i class="fas fa-copy copy-icon" onclick="copyText('num1')"></i>
+                    </li>
+                    <li>
+                        <span id="num2">+91 9622235488</span>
+                        <i class="fas fa-copy copy-icon" onclick="copyText('num2')"></i>
+                    </li>
+                    <li>
+                        <span class="inline-span" id="email1">pankaj.ladakhsafari@gmail.com</span>
+                        <i class="fas fa-copy copy-icon" onclick="copyText('email1')"></i>
+                    </li>
+                    <li>
+                        <span class="inline-span" id="email2">deleks.ladakhsafari@gmail.com</span>
+                        <i class="fas fa-copy copy-icon" onclick="copyText('email2')"></i>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Address -->
+            <div class="footer-section address-section">
+                <h4>Address</h4>
+                <p>Leh Office: S6, Raku Complex, Fort Rd, Leh, Ladakh 194101</p>
+                <p>Branch Office: Shop No. 31, Sab Mall, Sector-27 NOIDA</p>
             </div>
         </div>
-        <div class="copyright">
-            <p>&copy; 2023 EXPLORERS. All rights reserved.</p>
-        </div>
+    </footer>
+
+    <!-- Copy JS -->
+    <script>
+        function copyText(id) {
+            const text = document.getElementById(id).textContent;
+            navigator.clipboard.writeText(text).then(() => {
+                alert("Copied: " + text);
+            });
+        }
+    </script>
+
     </footer>
 
     <script>
