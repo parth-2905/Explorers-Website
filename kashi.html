@@ -3,10 +3,127 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kanji to Pishu Trek Roadmap</title>
+    <title>Kanji to Pishu Trek</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="test_style.css">
     <style>
+    
+    nav {
+    position: fixed;
+    top: 25px;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0;
+    width: 100%;
+    background: transparent;
+}
+
+.logo-container {
+    position: fixed;
+    top: 25px;
+    left: 30px;
+    z-index: 1000;
+}
+
+.nav-container {
+    background-color: rgba(80, 80, 80, 0.85);
+    width: 80%;
+    max-width: 1200px;
+    border-radius: 15px;
+    padding: 14px 30px;
+    display: flex
+;
+    justify-content: space-between;
+    align-items: center;
+    backdrop-filter: blur(8px);
+}
+
+.nav-links {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 20px;
+    padding: 0 20px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+    transform: scale(1);
+    transition: transform 0.3s ease, color 0.3s ease, text-shadow 0.3s ease;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.nav-links a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 0, 0.1);
+    border-radius: 8px;
+    z-index: -1;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+.nav-links a:hover {
+    color: #ffffff;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3),
+                0 0 25px rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.nav-links a:hover::before {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.nav-links a.active {
+    color: #333;
+    box-shadow: 0 0 15px rgba(255, 255, 0, 0.2);
+}
+
+/* Responsive Navigation */
+@media (max-width: 768px) {
+    .nav-links {
+        justify-content: space-around;
+        flex-wrap: wrap;
+        gap: 10px;
+        padding: 0 10px;
+    }
+
+    .nav-links a {
+        padding: 10px 15px;
+        min-width: 100px;
+        font-size: 1rem;
+        letter-spacing: 0.3px;
+        text-transform: uppercase;
+    }
+}
+
+
+    
+
         body {
             font-family: 'Montserrat', sans-serif;
             line-height: 1.6;
@@ -637,6 +754,27 @@
     </style>
 </head>
 <body>
+
+  <!-- Logo -->
+  <div class="logo-container">
+    <img src="images/lsf_logo.png" alt="Ladakh Safari" style="height: 100px; width: auto; max-width: 250px;">
+</div>
+
+<!-- Navigation -->
+<nav>
+    <div class="nav-container">
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="index.html#journeys-intro">Journeys</a>
+            <a href="activity.html">Activities</a>
+            <a href="index.html#team">Team</a>
+            <a href="index.html#terms">T&amp;C</a>
+            <a href="about.html">About Us</a>
+        </div>
+    </div>
+</nav>
+
+
     <!-- Hero Section with Slideshow -->
     <section class="hero">
         <div class="hero-slideshow">
@@ -1055,12 +1193,7 @@
         <span></span>
     </button>
     
-    <nav class="main-nav" id="mainNav">
-        <a href="#">Home</a>
-        <a href="#">About</a>
-        <a href="#">Contact</a>
-    </nav>
-    
+
     <script>
         // Slideshow functionality for hero section
         document.addEventListener('DOMContentLoaded', function() {
