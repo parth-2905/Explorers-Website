@@ -136,7 +136,7 @@
             height: 100vh;
             width: 100%;
             overflow: hidden;
-            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('images/s1.jpg') center/cover no-repeat;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('images/sham1.jpg') center/cover no-repeat;
         }
         
         .hero-content {
@@ -999,9 +999,211 @@
     </section>
     
 
+    <!-- Footer Styles -->
+    <style>
+    /* Full page background */
+    body {
+        margin: 0;
+        padding: 0;
+    }
+    
+    /* Force full width footer */
+    html, body {
+        width: 100%;
+        overflow-x: hidden;
+    }
+    
+    /* Main footer container */
+    footer {
+        position: relative;
+        background: #000000 !important;
+        color: #ffffff !important;
+        width: 100vw !important;
+        margin: 0 !important;
+        padding: 3rem 0 !important;
+        left: 50% !important;
+        right: 50% !important;
+        margin-left: -50vw !important;
+        margin-right: -50vw !important;
+    }
+    
+    /* Force all elements to use the black background */
+    footer,
+    footer *,
+    footer *:before,
+    footer *:after {
+        background: #000000 !important;
+        background-color: #000000 !important;
+        color: #ffffff !important;
+    }
+    
+    /* Ensure text remains white */
+    footer a,
+    footer h4,
+    footer p,
+    footer span,
+    footer i,
+    footer strong,
+    footer div {
+        color: #ffffff !important;
+        fill: #ffffff !important;
+        stroke: #ffffff !important;
+    }
+    
+    /* Footer content styling */
+    .footer-main {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+    
+    .footer-section {
+        flex: 1;
+        min-width: 200px;
+        padding: 0 15px;
+        margin-bottom: 20px;
+    }
+    
+    .footer-section h4 {
+        margin-bottom: 15px;
+        font-size: 1.2rem;
+    }
+    
+    .footer-section ul {
+        list-style: none;
+        padding: 0;
+    }
+    
+    .footer-section ul li {
+        margin-bottom: 10px;
+    }
+    
+    .footer-section a {
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+    
+    .footer-section a:hover {
+        color: #ccc !important;
+    }
+    
+    .social-icons {
+        display: flex;
+        gap: 15px;
+        margin-top: 15px;
+    }
+    
+    .social-icons a {
+        font-size: 1.5rem;
+    }
+    
+    .logo-row {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 15px;
+    }
+    
+    .logo-row img {
+        height: 40px;
+        width: auto;
+    }
+    
+    .copy-icon {
+        margin-left: 8px;
+        cursor: pointer;
+        font-size: 0.9rem;
+    }
+    
+    @media (max-width: 768px) {
+        .footer-main {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .footer-section {
+            width: 100%;
+            margin-bottom: 30px;
+        }
+        
+        .social-icons {
+            justify-content: center;
+        }
+    }
+    </style>
+    
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2025 EXPLORERS. All rights reserved.</p>
+        <div class="footer-main">
+            <!-- Logo and Social -->
+            <div class="footer-brand">
+                <div class="logo-row">
+                    <img src="images/l1.jpg" alt="Logo 1" />
+                    <img src="images/l2.jpg" alt="Logo 2" />
+                    <img src="images/l3.jpg" alt="Logo 3" />
+                </div>
+                <p>Find us on social media</p>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/ladakhsafari" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/ladakhsafari" target="_blank"><i class="fab fa-facebook"></i></a>
+                </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="footer-section quick-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#journeys-intro">Journeys</a></li>
+                    <li><a href="activity.html">Activities</a></li>
+                    <li><a href="tnc.html">Terms</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Us -->
+            <div class="footer-section contact-section">
+                <h4>Contact Us</h4>
+                <ul>
+                    <li>
+                        <span id="num1">+91 9810564360</span>
+                        <i class="fas fa-copy copy-icon" onclick="copyText('num1')"></i>
+                    </li>
+                    <li>
+                        <span id="num2">+91 9622235488</span>
+                        <i class="fas fa-copy copy-icon" onclick="copyText('num2')"></i>
+                    </li>
+                    <li>
+                        <span id="email">ladakhsafari@gmail.com</span>
+                        <i class="fas fa-copy copy-icon" onclick="copyText('email')"></i>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Address -->
+            <div class="footer-section address-section">
+                <h4>Our Address</h4>
+                <p>Near Petrol Pump,<br>
+                Main Market,<br>
+                Leh, Ladakh 194101</p>
+            </div>
+        </div>
     </footer>
+    
+    <script>
+        function copyText(id) {
+            const text = document.getElementById(id).innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                // Optional: Show a tooltip or notification that text was copied
+                alert('Copied to clipboard: ' + text);
+            });
+        }
+    </script>
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     
     <script>
         // Slideshow functionality for hero section
