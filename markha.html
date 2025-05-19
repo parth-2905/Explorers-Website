@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -136,48 +137,7 @@ nav {
             height: 100vh;
             width: 100%;
             overflow: hidden;
-        }
-        
-        .hero-slideshow {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-        
-        .hero-slide {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            transition: opacity 1.5s ease-in-out;
-            background-size: cover;
-            background-position: center;
-            z-index: 1;
-        }
-        
-        .hero-slide.active {
-            opacity: 1;
-            z-index: 2;
-        }
-        
-        .hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.4);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: white;
-            padding: 0 20px;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('images/m1.jpg') center/cover no-repeat;
         }
         
         .hero-content {
@@ -188,6 +148,8 @@ nav {
             width: 90%;
             max-width: 800px;
             text-align: center;
+            color: white;
+            padding: 0 20px;
         }
         
         .hero-content h1 {
@@ -198,7 +160,6 @@ nav {
         
         .hero-content p {
             font-size: 1.5rem;
-            max-width: 800px;
             margin: 0 auto 2rem;
             text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
         }
@@ -1036,17 +997,11 @@ nav {
 </nav>
 
 
-    <!-- Hero Section with Slideshow -->
+    <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-slideshow">
-            <div class="hero-slide active" style="background-image: url('images/m1.jpg');"></div>
-            <div class="hero-slide" style="background-image: url('images/m2.jpg');"></div>
-        </div>
-        <div class="hero-overlay">
-            <div class="hero-content">
-                <h1>Markha Valley Trek</h1>
-                <p>A 5-day adventure through the stunning Markha Valley in Ladakh, India</p>
-            </div>
+        <div class="hero-content">
+            <h1>Markha Valley Trek</h1>
+            <p>A 5-day adventure through the stunning Markha Valley in Ladakh, India</p>
         </div>
         <div class="scroll-down">
             Scroll Down ↓
