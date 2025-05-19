@@ -42,7 +42,7 @@
         }
         
         .nav-container {
-            background-color: rgba(80, 80, 80, 0.85);
+            background-color: white;
             width: 80%;
             max-width: 1200px;
             border-radius: 15px;
@@ -50,7 +50,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            backdrop-filter: blur(8px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
         
         .left-side {
@@ -840,7 +840,10 @@
         .brick-item:nth-child(5) { grid-column: span 3; grid-row: span 2; }
         .brick-item:nth-child(6) { grid-column: span 4; grid-row: span 1; }
         .brick-item:nth-child(7) { grid-column: span 4; grid-row: span 1; }
+        /* Last three items in a single row */
         .brick-item:nth-child(8) { grid-column: span 4; grid-row: span 1; }
+        .brick-item:nth-child(9) { grid-column: span 4; grid-row: span 1; }
+        .brick-item:nth-child(10) { grid-column: span 4; grid-row: span 1; }
         
         .brick-content {
             position: relative;

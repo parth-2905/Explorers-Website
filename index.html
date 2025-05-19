@@ -9,6 +9,42 @@
     <link rel="stylesheet" href="test_style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <style>
+        /* Navigation Bar Styles */
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 90%;
+            top: 7mm; /* 7mm space from the top */
+            z-index: 1000;
+        }
+
+        .left-side .logo img {
+            height: 40px;
+            width: auto;
+        }
+
+        .right-side .nav-links {
+            display: flex;
+            gap: 25px;
+        }
+
+        .right-side .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .right-side .nav-links a:hover,
+        .right-side .nav-links a.active {
+            color: #e74c3c;
+        }
+        
         .team-card {
             background: white;
             border-radius: 10px;
@@ -830,17 +866,21 @@
     <header class="hero" id="home">
         <div class="animated-bg"></div>
         <nav>
-            <div class="nav-container animate__animated animate__fadeInDown">
-                <div class="logo logo-container" id="animatedLogo">
-                   
+            <div class="nav-container">
+                <div class="left-side">
+                    <div class="logo">
+                        <img src="images/Ladakh-Safari-Logo.png" alt="Ladakh Safari" style="height: 40px; width: auto;">
+                    </div>
                 </div>
-                <div class="nav-links">
-                    <a href="#home" class="nav-link">Home</a>
-                    <a href="#journeys-intro" class="nav-link">Journeys We Offer</a>
-                    <a href="activity.html" target="_blank" class="nav-link">Activities</a>
-                    <a href="#team" class="nav-link">Team</a>
-                    <a href="tnc.html" target="_blank" class="nav-link">Terms and Conditions</a>
-                    <a href="about.html" target="_blank" class="nav-link">About Us</a>
+                <div class="right-side">
+                    <div class="nav-links">
+                        <a href="index.html">Home</a>
+                        <a href="index.html#journeys-intro">Journeys</a>
+                        <a href="activity.html">Activities</a>
+                        <a href="index.html#team">Team</a>
+                        <a href="tnc.html">T&amp;C</a>
+                        <a href="about.html" class="active">About Us</a>
+                    </div>
                 </div>
             </div>
         </nav>

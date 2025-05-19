@@ -21,6 +21,60 @@
             overflow: hidden;
         }
         
+        /* Custom navigation styles for this page */
+        nav {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 0;
+            position: fixed;
+            z-index: 1000;
+            width: 100%;
+            top: 15px;
+        }
+        
+        .nav-container {
+            background-color: #f5f5f5; /* Light grey background */
+            width: 80%;
+            max-width: 1200px;
+            border-radius: 15px;
+            padding: 14px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+            transform: translateY(0);
+            backdrop-filter: blur(5px);
+        }
+        
+        .nav-container:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .left-side .logo img {
+            height: 40px;
+            width: auto;
+        }
+
+        .right-side .nav-links {
+            display: flex;
+            gap: 25px;
+        }
+
+        .right-side .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .right-side .nav-links a:hover,
+        .right-side .nav-links a.active {
+            color: #e74c3c;
+        }
+
         /* Floating elements */
         .floating-elements {
             position: fixed;
@@ -559,22 +613,27 @@
     </style>
 </head>
 <body>
-    <header class="hero" style="height: 40vh; min-height: 300px;">
-        <nav>
-            <div class="nav-container">
+    <nav>
+        <div class="nav-container">
+            <div class="left-side">
                 <div class="logo">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
-                    <span>EXPLORERS</span>
+                    <img src="images/Ladakh-Safari-Logo.png" alt="Ladakh Safari" style="height: 40px; width: auto;">
                 </div>
+            </div>
+            <div class="right-side">
                 <div class="nav-links">
                     <a href="index.html">Home</a>
-                    <a href="index.html#journeys-intro">Journeys We Offer</a>
+                    <a href="index.html#journeys-intro">Journeys</a>
                     <a href="activity.html">Activities</a>
                     <a href="index.html#team">Team</a>
+                    <a href="tnc.html" class="active">T&amp;C</a>
                     <a href="about.html">About Us</a>
                 </div>
             </div>
-        </nav>
+        </div>
+    </nav>
+    <header class="hero" style="height: 40vh; min-height: 300px; margin-top: 0;">
+        <div class="animated-bg"></div>
         <div class="hero-content">
             <h1>Terms and Conditions</h1>
         </div>
