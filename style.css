@@ -147,7 +147,7 @@ nav {
 
 /* Navigation Links */
 .nav-container .nav-links a {
-    color: black !important;
+    color: rgb(0,0,0) !important;
     text-decoration: none !important;
     transition: all 0.3s ease !important;
     position: relative;
