@@ -41,7 +41,7 @@ nav {
 }
 
 .nav-container {
-    background-color: rgba(80, 80, 80, 0.85);
+    background-color: rgb(80 80 80 / 0%);
     width: 80%;
     max-width: 1200px;
     border-radius: 15px;
