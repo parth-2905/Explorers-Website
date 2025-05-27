@@ -1257,61 +1257,266 @@
     </script>
     
     <!-- Footer -->
-    <footer>
-        <div class="footer-main">
-            <!-- Logo and Social -->
-            <div class="footer-brand">
-                <div class="logo-row">
-                    <img src="images/l1.jpg" alt="Logo 1" />
-                    <img src="images/l2.jpg" alt="Logo 2" />
-                    <img src="images/l3.jpg" alt="Logo 3" />
-                </div>
-                <p>Find us on social media</p>
-                <div class="social-icons">
-                    <a href="https://www.instagram.com/ladakhsafari" target="_blank"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.facebook.com/ladakhsafari" target="_blank"><i class="fab fa-facebook"></i></a>
-                </div>
-            </div>
+    <style>
+  body {
+    margin: 0;
+    padding: 0;
+    color: #333;
+    font-family: Arial, sans-serif;
+  }
+  
+  .hero {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url('images/J2.jpg') no-repeat center center/cover;
+    color: white;
+    text-align: center;
+    overflow: hidden;
+  }
+  
+  .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+  }
+  
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 0 20px;
+  }
 
-            <!-- Quick Links -->
-            <div class="footer-section quick-links">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="index.html#journeys-intro">Journeys</a></li>
-                    <li><a href="activity.html">Activities</a></li>
-                    <li><a href="tnc.html">Terms</a></li>
-                </ul>
-            </div>
+  footer {
+    background-color: #000000;
+    color: #ffffff;
+    padding: 3rem 2rem;
+  }
 
-            <!-- Contact Us -->
-            <div class="footer-section contact-section">
-                <h4>Contact Us</h4>
-                <ul>
-                    <li>
-                        <span id="num1">+91 9810564360</span>
-                        <i class="fas fa-copy copy-icon" onclick="copyText('num1')"></i>
-                    </li>
-                    <li>
-                        <span id="num2">+91 9622235488</span>
-                        <i class="fas fa-copy copy-icon" onclick="copyText('num2')"></i>
-                    </li>
-                    <li>
-                        <span id="email">ladakhsafari@gmail.com</span>
-                        <i class="fas fa-copy copy-icon" onclick="copyText('email')"></i>
-                    </li>
-                </ul>
-            </div>
+  .footer-main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 0.5rem;
+  }
 
-            <!-- Address -->
-            <div class="footer-section address-section">
-                <h4>Our Address</h4>
-                <p>Near Petrol Pump,<br>
-                Main Market,<br>
-                Leh, Ladakh 194101</p>
-            </div>
-        </div>
-    </footer>
+  .footer-brand {
+    flex: 1 1 250px;
+    margin-top: 40px;
+  }
+
+  .logo-row {
+    display: flex;
+    gap: 10px;
+    align-items: flex-end;
+    margin-bottom: 1rem;
+  }
+
+  .footer-brand img {
+    height: 40px;
+    object-fit: contain;
+    margin-top: 0;
+  }
+
+  .footer-brand p {
+    margin: 0.5rem 0;
+  }
+
+  .social-icons {
+    margin-top: 10px;
+  }
+
+  .social-icons a {
+    margin-right: 15px;
+    color: #ffffff;
+    font-size: 2rem;
+    transition: color 0.3s;
+  }
+
+  .social-icons a:hover {
+    color: #dddddd;
+  }
+
+  .footer-section {
+    flex: 1 1 220px;
+    padding-left: 10px;
+  }
+
+  .footer-section h4 {
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: #ffffff;
+    text-align: left;
+  }
+
+  .footer-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .footer-section ul li {
+    margin-bottom: 0.5rem;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .footer-section ul a {
+    text-decoration: none;
+    color: #ffffff;
+    transition: color 0.3s;
+  }
+
+  .footer-section ul a:hover {
+    color: #dddddd;
+  }
+
+  .footer-section p {
+    color: #ffffff;
+    margin: 0.5rem 0;
+  }
+
+  .copy-icon {
+    margin-left: 8px;
+    cursor: pointer;
+    color: #ffffff;
+    font-size: 1rem;
+    transition: color 0.3s;
+  }
+
+  .copy-icon:hover {
+    color: #dddddd;
+  }
+
+  .inline-span {
+    display: inline-block;
+  }
+
+  .contact-section {
+    flex: 1 1 280px;
+  }
+
+  .address-section {
+    flex: 1 1 280px;
+    font-size: 0.92rem;
+    line-height: 1.4;
+    padding-left: 10px;
+    margin-left: 0;
+    max-width: none;
+  }
+
+  @media (max-width: 768px) {
+    .footer-main {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .footer-section,
+    .footer-brand {
+      text-align: center;
+    }
+
+    .footer-brand img {
+      margin: 0 10px;
+    }
+
+    .address-section h4 {
+      text-align: center;
+    }
+  }
+</style>
+</head>
+<body>
+  <!-- Footer -->
+  <footer>
+    <div class="footer-main">
+
+    <!-- Logo and Social -->
+    <div class="footer-brand">
+      <div class="logo-row">
+        <img src="images/l1.jpg" alt="Logo 1" />
+        <img src="images/l2.jpg" alt="Logo 2" />
+        <img src="images/l3.jpg" alt="Logo 3" />
+      </div>
+      <p>Find us on social media</p>
+      <div class="social-icons">
+        <a href="https://www.instagram.com/ladakhsafari" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/ladakhsafari" target="_blank"><i class="fab fa-facebook"></i></a>
+      </div>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="footer-section quick-links">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="http://127.0.0.1:5500/index.html#journeys-intro">Journeys</a></li>
+        <li><a href="activity.html">Activities</a></li>
+        <li><a href="tnc.html">Terms</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact Us -->
+    <div class="footer-section contact-section">
+      <h4>Contact Us</h4>
+      <ul>
+        <li>
+          <span id="num1">+91 9810564360</span>
+          <i class="fas fa-copy copy-icon" onclick="copyText('num1')"></i>
+        </li>
+        <li>
+          <span id="num2">+91 9622235488</span>
+          <i class="fas fa-copy copy-icon" onclick="copyText('num2')"></i>
+        </li>
+        <li>
+          <span class="inline-span" id="email1">pankaj.ladakhsafari@gmail.com</span>
+          <i class="fas fa-copy copy-icon" onclick="copyText('email1')"></i>
+        </li>
+        <li>
+          <span class="inline-span" id="email2">deleks.ladakhsafari@gmail.com</span>
+          <i class="fas fa-copy copy-icon" onclick="copyText('email2')"></i>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Address -->
+    <div class="footer-section address-section">
+      <h4>Address</h4>
+      <p>
+        Leh Office: S6, Raku Complex, Fort Rd, Leh, Ladakh 194101
+      </p>
+      <p>
+        Branch Office: Shop No. 31, Sab Mall, Sector-27 NOIDA
+      </p>
+    </div>
+
+    </div>
+  </footer>
+
+  <!-- Copy JS -->
+  <script>
+      function copyText(id) {
+          const text = document.getElementById(id).textContent;
+          navigator.clipboard.writeText(text).then(() => {
+              alert("Copied: " + text);
+          });
+      }
+  </script>
+</body>
+</html>
+
     
     <script>
         function copyText(id) {
