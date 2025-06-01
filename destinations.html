@@ -1,0 +1,2226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explorers - Destinations</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="test_style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">    <style>
+    /* Enhanced base styles */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }    body {
+        font-family: 'Montserrat', sans-serif;
+        background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 25%, #f1f3f4 50%, #ffffff 75%, #f8f9fa 100%);
+        min-height: 100vh;
+        position: relative;
+        overflow-x: hidden;
+    }
+
+    /* Elegant subtle pattern overlay */
+    body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: 
+            radial-gradient(circle at 20% 30%, rgba(0, 0, 0, 0.02) 0%, transparent 40%),
+            radial-gradient(circle at 80% 70%, rgba(0, 0, 0, 0.015) 0%, transparent 40%),
+            linear-gradient(45deg, transparent 48%, rgba(0, 0, 0, 0.01) 50%, transparent 52%);
+        z-index: -1;
+        animation: subtleShift 30s ease-in-out infinite;
+    }    @keyframes subtleShift {
+        0%, 100% { opacity: 0.7; }
+        50% { opacity: 1; }
+    }
+
+    @keyframes fadeInUp {
+        0% {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    nav {
+    position: fixed;
+    top: 25px;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0;
+    width: 100%;
+    background: transparent;
+}
+
+.logo-container {
+    position: fixed;
+    top: 25px;
+    left: 30px;
+    z-index: 1000;
+}
+
+.nav-container {
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 25px;
+    padding: 16px 35px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    box-shadow: 
+        0 10px 30px rgba(0, 0, 0, 0.1),
+        0 5px 15px rgba(0, 0, 0, 0.05),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    width: 80%;
+    max-width: 1200px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.nav-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.03), transparent);
+    transition: left 0.8s ease;
+    z-index: -1;
+}
+
+.nav-container:hover::before {
+    left: 100%;
+}
+
+.nav-container:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+        0 15px 40px rgba(0, 0, 0, 0.15),
+        0 8px 20px rgba(0, 0, 0, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.nav-links {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 20px;
+    padding: 0 20px;
+}
+
+.nav-links a {
+    color: #333;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 12px 18px;
+    border-radius: 15px;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    font-family: 'Montserrat', sans-serif;
+    background: rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    backdrop-filter: blur(10px);
+}
+
+.nav-links a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.02));
+    border-radius: 15px;
+    z-index: -1;
+    transform: scale(0);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(15px);
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, rgba(0, 0, 0, 0.1) 0%, transparent 70%);
+    transform: translate(-50%, -50%);
+    transition: all 0.6s ease;
+    border-radius: 50%;
+}
+
+.nav-links a:hover {
+    color: #000;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 
+        0 10px 25px rgba(0, 0, 0, 0.1),
+        0 5px 15px rgba(0, 0, 0, 0.05),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.nav-links a:hover::before {
+    transform: scale(1);
+}
+
+.nav-links a:hover::after {
+    width: 100px;
+    height: 100px;
+}
+
+.nav-links a:active {
+    transform: translateY(-1px) scale(1.02);
+}
+
+/* Scroll-triggered single destination layout */
+.destinations-container {
+    padding: 60px 0;
+    margin: 0;
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 50%, #ffffff 100%);
+    position: relative;
+}
+
+/* Semi-transparent dots background pattern */
+.destinations-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle at 25% 25%, rgba(0, 0, 0, 0.08) 2px, transparent 2px),
+        radial-gradient(circle at 75% 75%, rgba(0, 0, 0, 0.06) 1.5px, transparent 1.5px),
+        radial-gradient(circle at 50% 10%, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+        radial-gradient(circle at 20% 80%, rgba(0, 0, 0, 0.05) 1.5px, transparent 1.5px),
+        radial-gradient(circle at 80% 20%, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+    background-size: 
+        60px 60px,
+        80px 80px,
+        40px 40px,
+        70px 70px,
+        50px 50px;
+    background-position:
+        0 0,
+        20px 20px,
+        10px 35px,
+        45px 10px,
+        30px 50px;
+    z-index: 0;
+    opacity: 0.7;
+    animation: dotsFloat 20s ease-in-out infinite;
+}
+
+@keyframes dotsFloat {
+    0%, 100% { 
+        opacity: 0.7;
+        transform: translateY(0px);
+    }
+    50% { 
+        opacity: 0.9;
+        transform: translateY(-5px);
+    }
+}
+
+.destination-section {
+    min-height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    margin-bottom: 80px;
+    position: relative;
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1;
+}
+
+.destination-section:last-child {
+    margin-bottom: 40px;
+}
+
+.destination-section.destination-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.destination-section.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.destination-card-full {
+    width: 90%;
+    max-width: 1200px;
+    height: 85vh;
+    min-height: 600px;
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 20px;
+}
+
+/* Ensure proper alternating layout */
+.destination-section:nth-child(even) .destination-card-full {
+    flex-direction: row-reverse;
+}
+
+.destination-section:nth-child(odd) .destination-card-full {
+    flex-direction: row;
+}
+
+.destination-image-container {
+    flex: 0 0 25%;
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    margin: 15px;
+}
+
+.destination-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s ease;
+    filter: brightness(1.1) contrast(1.1) saturate(1.2);
+}
+
+.destination-card-full:hover .destination-image-container img {
+    transform: scale(1.05);
+}
+
+.destination-content-full {
+    flex: 1;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background: rgba(255, 255, 255, 0.98);
+    position: relative;
+    border-radius: 15px;
+    margin: 15px;
+    gap: 1rem;
+}
+
+.destination-content-full > *:last-child {
+    margin-top: auto;
+    padding-top: 1rem;
+}
+
+.destination-content-full::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.02) 0%, transparent 50%, rgba(0, 0, 0, 0.01) 100%);
+    z-index: -1;
+}
+
+.destination-number {
+    font-size: 6rem;
+    font-weight: 900;
+    color: rgba(0, 0, 0, 0.05);
+    position: absolute;
+    top: -1.5rem;
+    right: 1.5rem;
+    line-height: 1;
+    font-family: 'Montserrat', sans-serif;
+    z-index: 0;
+}
+
+.destination-title {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: #000000;
+    margin-bottom: 1rem;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    position: relative;
+    z-index: 1;
+    line-height: 1.1;
+}
+
+.destination-title::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 80px;
+    height: 3px;
+    background: #000000;
+    border-radius: 2px;
+}
+
+.destination-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 1.5rem;
+    font-weight: 400;
+    letter-spacing: 0.3px;
+    position: relative;
+    z-index: 1;
+    text-align: justify;
+}
+
+.destination-highlights {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+.highlight-item {    padding: 0.8rem;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    border-left: 3px solid #000000;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.highlight-item:hover {
+    transform: translateX(8px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.highlight-item strong {
+    color: #000000;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 0.3rem;
+    font-size: 0.85rem;
+}
+
+.destination-btn {
+    background: #000000;
+    color: white;
+    padding: 0.9rem 2.2rem;
+    border: none;
+    border-radius: 35px;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    font-weight: 600;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    align-self: center;
+    margin-top: auto;
+    margin-bottom: 0;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.destination-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.6s ease;
+}
+
+.destination-btn:hover::before {
+    left: 100%;
+}
+
+.destination-btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+@media (max-width: 768px) {
+    .destinations-container {
+        padding: 40px 0;
+    }
+      .destination-section {
+        padding: 20px 10px;
+        margin-bottom: 40px;
+    }    .destination-card-full {
+        flex-direction: column !important;
+        height: auto;
+        min-height: 90vh;
+        width: 95%;
+    }
+    
+    .destination-image-container {
+        flex: 0 0 250px;
+        margin: 10px;
+    }
+    
+    .destination-content-full {
+        padding: 1.5rem;
+        margin: 10px;
+    }
+    
+    .destination-title {
+        font-size: 2rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .destination-description {
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+    }
+    
+    .destination-number {
+        font-size: 4rem;
+        top: -1rem;
+        right: 1rem;
+    }
+    
+    .destination-highlights {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .destination-card-full {
+        width: 98%;
+        min-height: 80vh;
+    }
+    
+    .destination-content-full {
+        padding: 1.2rem;
+    }
+    
+    .destination-title {
+        font-size: 1.8rem;
+        margin-bottom: 0.6rem;
+    }
+    
+    .destination-description {
+        font-size: 0.85rem;
+        margin-bottom: 1rem;
+    }
+    
+    .destination-number {
+        font-size: 3.5rem;
+        top: -0.5rem;
+        right: 0.8rem;
+    }
+    
+    .destination-highlights {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+    }
+    
+    .highlight-item {
+        padding: 0.6rem;
+        font-size: 0.8rem;
+    }
+    
+    .destination-btn {
+        padding: 0.8rem 2rem;
+        font-size: 0.8rem;
+    }
+}
+
+/* Enhanced Modal Styles with luxury design */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 9999; /* Increased z-index to ensure it's on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(15px);
+    animation: modalBackdropFadeIn 0.4s ease;
+}
+
+@keyframes modalBackdropFadeIn {
+    from { opacity: 0; backdrop-filter: blur(0px); }
+    to { opacity: 1; backdrop-filter: blur(15px); }
+}
+
+.modal-content {
+    background: rgba(255, 255, 255, 0.98);
+    margin: 3% auto;
+    padding: 0;
+    width: 80%;
+    max-width: 1000px;
+    max-height: 90vh;
+    overflow-y: auto;
+    border-radius: 25px;
+    box-shadow: 
+        0 30px 60px rgba(0, 0, 0, 0.3),
+        0 15px 30px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    animation: modalContentSlideIn 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    position: relative;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 0, 0, 0.3) rgba(0, 0, 0, 0.1);
+}
+
+/* Custom Scrollbar Styling */
+.modal-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    transition: background 0.3s ease;
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+    border-radius: 25px;
+    z-index: -1;
+}
+
+@keyframes modalContentSlideIn {
+    from { 
+        opacity: 0; 
+        transform: translateY(-100px) scale(0.9); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0) scale(1); 
+    }
+}
+
+.modal-header {
+    background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+    color: white;
+    padding: 2.5rem;
+    margin: 20px;
+    margin-bottom: 0;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    border-radius: 25px 25px 0 0;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.modal-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
+    animation: headerShimmer 3s ease-in-out infinite;
+}
+
+@keyframes headerShimmer {
+    0%, 100% { transform: translateX(-100%); }
+    50% { transform: translateX(100%); }
+}
+
+.modal-header h2 {
+    margin: 0;
+    font-size: 2.5rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 1;
+}
+
+.modal-body {
+    padding: 40px 40px;
+    background: rgba(255, 255, 255, 0.98);
+    border-radius: 0 0 25px 25px;
+    backdrop-filter: blur(10px);
+    margin: 20px;
+}
+
+.tour-intro p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #333;
+    margin-bottom: 30px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-align: justify;
+}
+
+.tour-highlights {
+    background: linear-gradient(135deg, rgba(248, 249, 250, 0.9) 0%, rgba(240, 242, 245, 0.9) 100%);
+    padding: 20px;
+    border-radius: 20px;
+    margin-top: 40px;
+    box-shadow: 
+        0 15px 30px rgba(0, 0, 0, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    position: relative;
+}
+
+.tour-highlights::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #000000, #1a1a1a, #000000);
+    border-radius: 20px 20px 0 0;
+}
+
+.tour-highlights h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #000000;
+    font-size: 1.5rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.tour-highlights h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #000000, #1a1a1a);
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+
+.tour-highlights ul {
+    list-style-type: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.tour-highlights li {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 
+        0 10px 20px rgba(0, 0, 0, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    display: flex;
+    align-items: center;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+}
+
+.tour-highlights li::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.1), transparent);
+    transition: left 0.6s ease;
+}
+
+.tour-highlights li:hover::before {
+    left: 100%;
+}
+
+.tour-highlights li:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.12),
+        0 0 30px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.tour-highlights li strong {
+    min-width: 120px;
+    display: inline-block;
+    color: #000000;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+}
+
+.close-button {
+    color: rgba(0, 0, 0, 0.8);
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.95);
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    font-family: Arial, sans-serif;
+    line-height: 1;
+}
+
+.close-button:hover {
+    color: #fff;
+    background: rgba(220, 53, 69, 0.9);
+    transform: rotate(90deg) scale(1.1);
+    box-shadow: 0 8px 20px rgba(220, 53, 69, 0.3);
+    border: 2px solid rgba(220, 53, 69, 0.5);
+}
+
+.close-button:focus {
+    outline: 3px solid rgba(220, 53, 69, 0.5);
+    outline-offset: 2px;
+}
+
+.close-button:active {
+    transform: rotate(90deg) scale(0.95);
+}
+
+/* Mobile responsive styles for close button */
+@media (max-width: 768px) {
+    .close-button {
+        width: 50px;
+        height: 50px;
+        font-size: 32px;
+        top: 15px;
+        right: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .close-button {
+        width: 55px;
+        height: 55px;
+        font-size: 36px;
+        top: 10px;
+        right: 10px;
+        border-width: 3px;
+    }
+    
+    .close-button:hover {
+        transform: rotate(90deg) scale(1.05);
+    }
+}
+
+/* Image Gallery Styles for Modals */
+.modal-image-gallery {
+    margin: 30px 0;
+    background: rgba(248, 249, 250, 0.9);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.modal-image-gallery h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #000000;
+    font-size: 1.4rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.modal-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+    position: relative;
+}
+
+.modal-gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    aspect-ratio: 16/10;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border: 2px solid transparent;
+}
+
+.modal-gallery-item:hover {
+    transform: translateY(-12px) scale(1.08);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    z-index: 15;
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+.modal-gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    filter: brightness(1.05) contrast(1.05) saturate(1.1);
+}
+
+.modal-gallery-item:hover img {
+    transform: scale(1.2);
+    filter: brightness(1.1) contrast(1.15) saturate(1.2);
+}
+
+.modal-gallery-item .image-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    color: white;
+    padding: 15px;
+    transform: translateY(100%);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0;
+}
+
+.modal-gallery-item:hover .image-overlay {
+    transform: translateY(0);
+    opacity: 0.3; /* Reduced opacity when external hover box is shown */
+}
+
+.image-overlay h4 {
+    margin: 0 0 5px 0;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.image-overlay p {
+    margin: 0;
+    font-size: 0.8rem;
+    opacity: 0.9;
+}
+
+/* External hover text box */
+.gallery-hover-info {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.98);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    padding: 18px 24px;
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.2),
+        0 10px 20px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(15px);
+    z-index: 25;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(15px) scale(0.9);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+    max-width: 320px;
+    min-width: 260px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.gallery-hover-info.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+}
+
+.gallery-hover-info h4 {
+    margin: 0 0 10px 0;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #000000;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.gallery-hover-info p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #444444;
+    line-height: 1.5;
+    font-weight: 500;
+}
+
+/* Arrow removed as requested */
+.gallery-hover-info::before {
+    display: none;
+}
+
+/* Mobile responsive styles for gallery hover */
+@media (max-width: 768px) {
+    .gallery-hover-info {
+        max-width: 250px;
+        min-width: 200px;
+        padding: 12px 16px;
+        font-size: 0.9rem;
+    }
+    
+    .gallery-hover-info h4 {
+        font-size: 1rem;
+        margin-bottom: 6px;
+    }
+    
+    .gallery-hover-info p {
+        font-size: 0.85rem;
+    }
+    
+    .modal-gallery-item:hover {
+        transform: translateY(-8px) scale(1.05);
+    }
+    
+    .modal-gallery-item:hover img {
+        transform: scale(1.1);
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-hover-info {
+        max-width: 200px;
+        min-width: 180px;
+        padding: 10px 14px;
+    }
+    
+    .gallery-hover-info h4 {
+        font-size: 0.9rem;
+    }
+    
+    .gallery-hover-info p {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .tour-highlights ul {
+        grid-template-columns: 1fr;
+    }
+    
+    .tour-highlights {
+        padding: 15px;
+    }
+    
+    .tour-highlights h3 {
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+    }
+    
+    .tour-highlights li {
+        padding: 12px;
+    }
+    
+    .tour-highlights li strong {
+        min-width: 100px;
+        font-size: 0.85rem;
+    }
+      .modal-body {
+        padding: 20px;
+        margin: 15px;
+    }
+    
+    .modal-header h2 {
+        font-size: 2rem;
+    }
+    
+    .modal-header {
+        padding: 2rem;
+        margin: 15px;
+        margin-bottom: 0;
+    }
+    
+    .modal-content {
+        width: 95%;
+        margin: 2% auto;
+    }
+}
+
+/* Footer Styles */
+footer {
+    background-color: #000000;
+    color: #ffffff;
+    padding: 3rem 2rem;
+}
+
+.footer-main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 0.5rem;
+}
+
+.footer-brand {
+    flex: 1 1 250px;
+    margin-top: 40px;
+}
+
+.logo-row {
+    display: flex;
+    gap: 10px;
+    align-items: flex-end;
+    margin-bottom: 1rem;
+}
+
+.footer-brand img {
+    height: 40px;
+    object-fit: contain;
+    margin-top: 0;
+}
+
+.footer-brand p {
+    margin: 0.5rem 0;
+}
+
+.social-icons {
+    margin-top: 10px;
+}
+
+.social-icons a {
+    margin-right: 15px;
+    color: #ffffff;
+    font-size: 2rem;
+    transition: color 0.3s;
+}
+
+.social-icons a:hover {
+    color: #dddddd;
+}
+
+.footer-section {
+    flex: 1 1 220px;
+    padding-left: 10px;
+}
+
+.footer-section h4 {
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: #ffffff;
+    text-align: left;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 0.5rem;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.footer-section ul a {
+    text-decoration: none;
+    color: #ffffff;
+    transition: color 0.3s;
+}
+
+.footer-section ul a:hover {
+    color: #dddddd;
+}
+
+.footer-section p {
+    color: #ffffff;
+    margin: 0.5rem 0;
+}
+
+.copy-icon {
+    margin-left: 8px;
+    cursor: pointer;
+    color: #ffffff;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+.copy-icon:hover {
+    color: #dddddd;
+}
+
+.inline-span {
+    display: inline-block;
+}
+
+/* Mobile responsive styles for gallery hover */
+@media (max-width: 768px) {
+    .gallery-hover-info {
+        max-width: 250px;
+        min-width: 200px;
+        padding: 12px 16px;
+        font-size: 0.9rem;
+    }
+    
+    .gallery-hover-info h4 {
+        font-size: 1rem;
+        margin-bottom: 6px;
+    }
+    
+    .gallery-hover-info p {
+        font-size: 0.85rem;
+    }
+    
+    .modal-gallery-item:hover {
+        transform: translateY(-8px) scale(1.05);
+    }
+    
+    .modal-gallery-item:hover img {
+        transform: scale(1.1);
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-hover-info {
+        max-width: 200px;
+        min-width: 180px;
+        padding: 10px 14px;
+    }
+    
+    .gallery-hover-info h4 {
+        font-size: 0.9rem;
+    }
+    
+    .gallery-hover-info p {
+        font-size: 0.8rem;
+    }
+}
+    </style>
+</head>
+<body>
+
+  <!-- Logo -->
+  <div class="logo-container">
+    <img src="images/lsf_logo.png" alt="Ladakh Safari" style="height: 175px; width: auto; max-width: 250px;">
+</div>
+
+<!-- Navigation -->
+<nav>
+    <div class="nav-container">
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="index.html#journeys-intro">Journeys</a>
+            <a href="destinations.html">Destinations</a>
+            <a href="activity.html">Activities</a>
+            <a href="index.html#team">Team</a>
+            <a href="tnc.html">T&amp;C</a>
+            <a href="about.html">About Us</a>
+        </div>
+    </div>
+</nav>    <div class="activities-hero" style="background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(248, 249, 250, 0.9)), url('images/himalayan.jpg') no-repeat center center/cover; position: relative; min-height: 100vh; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: #333; margin: 0; padding: 0; overflow: hidden;">
+        
+        <!-- Elegant animated background elements -->
+        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; z-index: 1;">
+            <div style="position: absolute; top: 20%; left: 10%; width: 300px; height: 300px; background: radial-gradient(circle, rgba(0, 0, 0, 0.03) 0%, transparent 70%); border-radius: 50%; animation: float 6s ease-in-out infinite;"></div>
+            <div style="position: absolute; top: 60%; right: 15%; width: 200px; height: 200px; background: radial-gradient(circle, rgba(0, 0, 0, 0.02) 0%, transparent 70%); border-radius: 50%; animation: float 8s ease-in-out infinite reverse;"></div>
+            <div style="position: absolute; bottom: 20%; left: 20%; width: 150px; height: 150px; background: radial-gradient(circle, rgba(0, 0, 0, 0.015) 0%, transparent 70%); border-radius: 50%; animation: float 10s ease-in-out infinite;"></div>
+        </div>
+
+        <!-- Sophisticated geometric patterns -->
+        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: 
+            linear-gradient(45deg, transparent 49%, rgba(0, 0, 0, 0.01) 50%, transparent 51%),
+            linear-gradient(-45deg, transparent 49%, rgba(0, 0, 0, 0.008) 50%, transparent 51%); z-index: 1;"></div>
+
+        <style>
+            @keyframes float {
+                0%, 100% { transform: translateY(0px) scale(1); opacity: 0.7; }
+                50% { transform: translateY(-30px) scale(1.1); opacity: 1; }
+            }
+              .hero-title {
+                background: #000000;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.1));
+            }
+            
+            .scroll-arrow {
+                animation: bounce 2s infinite;
+            }
+            
+            @keyframes bounce {
+                0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+                40% { transform: translateX(-50%) translateY(-10px); }
+                60% { transform: translateX(-50%) translateY(-5px); }
+            }
+        </style>
+
+        <h1 class="hero-title" style="position: relative; z-index: 2; font-size: 5rem; margin: 0 0 2rem 0; text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1); font-family: 'Montserrat', sans-serif; font-weight: 700; letter-spacing: 3px; line-height: 1.1; text-transform: uppercase;">Destinations We Offer</h1>
+        
+        <p style="position: relative; z-index: 2; font-size: 1.6rem; max-width: 900px; margin: 0 auto 3rem; text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1); font-family: 'Montserrat', sans-serif; font-weight: 500; letter-spacing: 1px; line-height: 1.6; font-style: italic; color: rgba(51, 51, 51, 0.9);">Discover the world's most enchanting destinations with our curated collection of extraordinary experiences</p>
+        
+        <div class="scroll-indicator scroll-arrow" style="position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); z-index: 2; text-align: center;">
+            <p style="margin-bottom: 15px; font-size: 1rem; text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1); font-weight: 600; letter-spacing: 0.5px; color: #555;">Scroll to explore</p>
+            <div style="width: 30px; height: 30px; border: 3px solid #333; border-left: none; border-top: none; transform: rotate(45deg); margin: 0 auto; filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.1));"></div>
+        </div>
+    </div>    <div class="destinations-container">
+        <!-- Destination 1: Andaman -->
+        <div class="destination-section" data-destination="1">
+            <div class="destination-card-full">
+                <div class="destination-image-container">
+                    <img src="images\d1.jpeg" alt="Andaman Islands">
+                </div>
+                <div class="destination-content-full">
+                    <div class="destination-number">01</div>
+                    <h2 class="destination-title">Andaman</h2>
+                    <p class="destination-description">
+                        Explore the mesmerizing Andaman Islands with their crystal-clear turquoise waters, pristine white sandy beaches, and vibrant coral reefs. This tropical paradise in the Bay of Bengal offers incredible marine life, lush rainforests, and historical sites like the Cellular Jail, making it perfect for both adventure seekers and those looking for serene relaxation.
+                    </p>
+                    <div class="destination-highlights">
+                        <div class="highlight-item">
+                            <strong>Best Time:</strong>
+                            October to May
+                        </div>
+                        <div class="highlight-item">
+                            <strong>Known For:</strong>
+                            Beaches, Coral Reefs
+                        </div>
+                        <div class="highlight-item">
+                            <strong>Popular Spots:</strong>
+                            Radhanagar Beach, Cellular Jail
+                        </div>
+                        <div class="highlight-item">
+                            <strong>Activities:</strong>
+                            Snorkeling, Scuba Diving
+                        </div>
+                    </div>
+                    <button class="destination-btn" onclick="openModal('andamanModal')">Explore Details</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Destination 2: Bhutan -->
+        <div class="destination-section" data-destination="2">
+            <div class="destination-card-full">
+                <div class="destination-image-container">
+                    <img src="images\d6.avif" alt="Bhutan Mountains">
+                </div>
+                <div class="destination-content-full">
+                    <div class="destination-number">02</div>
+                    <h2 class="destination-title">Bhutan</h2>
+                    <p class="destination-description">
+                        Discover the mystical Land of the Thunder Dragon, where ancient traditions blend seamlessly with stunning Himalayan landscapes. Bhutan's centuries-old Buddhist monasteries, intricate fortresses (dzongs), and commitment to Gross National Happiness create a unique cultural experience. Trek through pristine valleys, witness colorful festivals, and connect with the warm-hearted Bhutanese people.
+                    </p>
+                    <div class="destination-highlights">
+                        <div class="highlight-item">
+                            <strong>Best Time:</strong>
+                            March to May, Sept to Nov
+                        </div>
+                        <div class="highlight-item">
+                            <strong>Known For:</strong>
+                            Buddhist Monasteries
+                        </div>
+                        <div class="highlight-item">
+                            <strong>Popular Spots:</strong>
+                            Tiger's Nest, Punakha Dzong
+                        </div>
+                        <div class="highlight-item">
+                            <strong>Activities:</strong>
+                            Trekking, Cultural Tours
+                        </div>
+                    </div>
+                    <button class="destination-btn" onclick="openModal('bhutanModal')">Explore Details</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Destination 3: Tibet -->
+        <div class="destination-section" data-destination="3">
+            <div class="destination-card-full">
+                <div class="destination-image-container">
+                    <img src="images\d11.jpeg" alt="Tibet Plateau">
+                </div>
+                <div class="destination-content-full">
+                    <div class="destination-number">03</div>
+                    <h2 class="destination-title">Tibet</h2>
+                    <p class="destination-description">
+                        Journey to the Roof of the World, where the majestic Himalayan mountains touch the sky. Tibet's breathtaking high-altitude plateaus, sacred lakes, and profound Buddhist spiritual heritage create an otherworldly experience. Visit the magnificent Potala Palace, join pilgrims circling ancient temples, and witness the resilient culture of the Tibetan people amidst some of the planet's most spectacular landscapes.
+                    </p>
+                    <div class="destination-highlights">
+                        <div class="highlight-item">
+                            <strong>Best Time:</strong>
+                            April to October
+                        </div>
+                        <div class="highlight-item">
+                            <strong>Known For:</strong>
+                            High Altitude Plateaus
+                        </div>
+                        <div class="highlight-item">
+                            <strong>Popular Spots:</strong>
+                            Potala Palace, Mount Kailash
+                        </div>
+                        <div class="highlight-item">
+                            <strong>Activities:</strong>
+                            Monastery Tours, Trekking
+                        </div>
+                    </div>
+                    <button class="destination-btn" onclick="openModal('tibetModal')">Explore Details</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Destination 4: Nepal -->
+        <div class="destination-section" data-destination="4">
+            <div class="destination-card-full">
+                <div class="destination-image-container">
+                    <img src="images\d12.avif" alt="Nepal Himalayas">
+                </div>
+                <div class="destination-content-full">
+                    <div class="destination-number">04</div>
+                    <h2 class="destination-title">Nepal</h2>
+                    <p class="destination-description">
+                        Experience the wonders of Nepal, home to eight of the world's fourteen highest mountains including Mount Everest. This diverse country offers world-class trekking through spectacular mountain scenery, ancient temples and stupas in Kathmandu Valley, wildlife safaris in Chitwan National Park, and the opportunity to connect with various ethnic communities. Nepal's rich cultural tapestry and natural beauty will captivate your heart.
+                    </p>
+                    <div class="destination-highlights">
+                        <div class="highlight-item">
+                            <strong>Best Time:</strong>
+                            Oct to Dec, Feb to April
+                        </div>
+                        <div class="highlight-item">
+                            <strong>Known For:</strong>
+                            Mount Everest, Trekking
+                        </div>
+                        <div class="highlight-item">
+                            <strong>Popular Spots:</strong>
+                            Kathmandu, Pokhara
+                        </div>
+                        <div class="highlight-item">
+                            <strong>Activities:</strong>
+                            Mountaineering, Rafting
+                        </div>
+                    </div>
+                    <button class="destination-btn" onclick="openModal('nepalModal')">Explore Details</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Destination 5: Sri Lanka -->
+        <div class="destination-section" data-destination="5">
+            <div class="destination-card-full">
+                <div class="destination-image-container">
+                    <img src="images/d13.jpeg" alt="Sri Lanka Landscapes">
+                </div>
+                <div class="destination-content-full">
+                    <div class="destination-number">05</div>
+                    <h2 class="destination-title">Sri Lanka</h2>
+                    <p class="destination-description">
+                        Explore the teardrop of India, a compact island nation packed with extraordinary diversity. Sri Lanka's ancient Buddhist ruins, colonial fortresses, verdant tea plantations, palm-fringed beaches, and wildlife-rich national parks offer endless adventure. Encounter elephants on safari, climb to sacred mountain temples, surf perfect waves, and savor spice-infused cuisine on this tropical paradise with a rich cultural heritage spanning over 2,000 years.
+                    </p>
+                    <div class="destination-highlights">
+                        <div class="highlight-item">
+                            <strong>Best Time:</strong>
+                            Dec to March
+                        </div>
+                        <div class="highlight-item">
+                            <strong>Known For:</strong>
+                            Tea Plantations, Beaches
+                        </div>
+                        <div class="highlight-item">
+                            <strong>Popular Spots:</strong>
+                            Sigiriya, Kandy, Galle
+                        </div>
+                        <div class="highlight-item">
+                            <strong>Activities:</strong>
+                            Wildlife Safaris, Surfing
+                        </div>
+                    </div>
+                    <button class="destination-btn" onclick="openModal('sriLankaModal')">Explore Details</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Destination 6: Himachal Pradesh -->
+        <div class="destination-section" data-destination="6">
+            <div class="destination-card-full">
+                <div class="destination-image-container">
+                    <img src="images/d14.avif" alt="Himachal Pradesh">
+                </div>
+                <div class="destination-content-full">
+                    <div class="destination-number">06</div>
+                    <h2 class="destination-title">Himachal Pradesh</h2>
+                    <p class="destination-description">
+                        Discover Himachal Pradesh, the "Land of Snowy Mountains," nestled in the western Himalayas. This northern Indian state enchants visitors with its spectacular mountain vistas, picturesque hill stations, ancient temples, and diverse adventure opportunities. From the Tibetan-influenced culture of Dharamshala to the colonial charm of Shimla, from the adventure hub of Manali to the tranquil Parvati Valley, Himachal offers natural splendor and spiritual serenity.
+                    </p>
+                    <div class="destination-highlights">
+                        <div class="highlight-item">
+                            <strong>Best Time:</strong>
+                            March to June, Oct to Dec
+                        </div>
+                        <div class="highlight-item">
+                            <strong>Known For:</strong>
+                            Hill Stations, Adventure
+                        </div>
+                        <div class="highlight-item">
+                            <strong>Popular Spots:</strong>
+                            Shimla, Manali, Dharamshala
+                        </div>
+                        <div class="highlight-item">
+                            <strong>Activities:</strong>
+                            Trekking, Paragliding, Skiing
+                        </div>
+                    </div>
+                    <button class="destination-btn" onclick="openModal('himachalModal')">Explore Details</button>
+                </div>
+            </div>
+        </div>
+    </div>    <!-- Modal for Andaman -->
+    <div id="andamanModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal('andamanModal')">&times;</span>
+            <div class="modal-header">
+                <h2>Andaman - Island Paradise</h2>
+            </div>            <div class="modal-body">
+                <div class="tour-intro">
+                    <p>Experience the pristine beauty of the Andaman Islands, with crystal clear waters, white sandy beaches, and lush tropical forests. The Andaman and Nicobar Islands are a group of islands at the juncture of the Bay of Bengal and the Andaman Sea, offering a perfect blend of adventure, relaxation, and natural beauty.</p>
+                    
+                    <!-- Image Gallery -->
+                    <div class="modal-image-gallery">
+                        <h3>Discover Andaman</h3>
+                        <div class="modal-gallery-grid">
+                            <div class="modal-gallery-item">
+                                <img src="images/d2.jpeg" alt="Radhanagar Beach">
+                                <div class="image-overlay">
+                                    <h4>Radhanagar Beach</h4>
+                                    <p>Asia's Best Beach - pristine white sand and turquoise waters</p>
+                                </div>
+                            </div>
+                            <div class="modal-gallery-item">
+                                <img src="images/d3.jpeg" alt="Water Sports">
+                                <div class="image-overlay">
+                                    <h4>Water Sports</h4>
+                                    <p>Snorkeling, scuba diving, and sea walking adventures</p>
+                                </div>
+                            </div>
+                            <div class="modal-gallery-item">
+                                <img src="images/d4.jpeg" alt="Coral Reefs">
+                                <div class="image-overlay">
+                                    <h4>Coral Reefs</h4>
+                                    <p>Vibrant marine life and colorful coral formations</p>
+                                </div>
+                            </div>
+                            <div class="modal-gallery-item">
+                                <img src="images/d5.jpeg" alt="Cellular Jail">
+                                <div class="image-overlay">
+                                    <h4>Cellular Jail</h4>
+                                    <p>Historic monument of India's freedom struggle</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tour-highlights">
+                        <h3>Tour Highlights</h3>
+                        <ul>
+                            <li><strong>Best Time to Visit:</strong> October to May</li>
+                            <li><strong>Known For:</strong> Beaches, Coral Reefs, Water Sports</li>
+                            <li><strong>Popular Spots:</strong> Radhanagar Beach, Cellular Jail, Ross Island</li>
+                            <li><strong>Activities:</strong> Snorkeling, Scuba Diving, Sea Walking</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Bhutan -->
+    <div id="bhutanModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal('bhutanModal')">&times;</span>
+            <div class="modal-header">
+                <h2>Bhutan - Land of the Thunder Dragon</h2>
+            </div>            <div class="modal-body">
+                <div class="tour-intro">
+                    <p>Discover the mystical kingdom of Bhutan, nestled in the Eastern Himalayas. Known for its monasteries, fortresses (dzongs), and dramatic landscapes ranging from subtropical plains to steep mountains and valleys, Bhutan offers a unique travel experience with its preserved culture and traditional way of life.</p>
+                    
+                    <!-- Image Gallery -->
+                    <div class="modal-image-gallery">
+                        <h3>Discover Bhutan</h3>
+                        <div class="modal-gallery-grid">
+                            <div class="modal-gallery-item">
+                                <img src="images/d7.jpeg" alt="Tiger's Nest Monastery">
+                                <div class="image-overlay">
+                                    <h4>Tiger's Nest Monastery</h4>
+                                    <p>Sacred monastery perched on a cliff face</p>
+                                </div>
+                            </div>
+                            <div class="modal-gallery-item">
+                                <img src="images/d8.jpeg" alt="Punakha Dzong">
+                                <div class="image-overlay">
+                                    <h4>Punakha Dzong</h4>
+                                    <p>Magnificent fortress at the confluence of two rivers</p>
+                                </div>
+                            </div>
+                            <div class="modal-gallery-item">
+                                <img src="images/d9.jpeg" alt="Thimphu Valley">
+                                <div class="image-overlay">
+                                    <h4>Thimphu Valley</h4>
+                                    <p>Capital city surrounded by mountains</p>
+                                </div>
+                            </div>
+                            <div class="modal-gallery-item">
+                                <img src="images/d10.jpg" alt="Buddhist Culture">
+                                <div class="image-overlay">
+                                    <h4>Buddhist Culture</h4>
+                                    <p>Ancient traditions and colorful festivals</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tour-highlights">
+                        <h3>Tour Highlights</h3>
+                        <ul>
+                            <li><strong>Best Time to Visit:</strong> March to May, September to November</li>
+                            <li><strong>Known For:</strong> Buddhist Monasteries, Himalayan Views, Cultural Heritage</li>
+                            <li><strong>Popular Spots:</strong> Tiger's Nest Monastery, Punakha Dzong, Thimphu</li>
+                            <li><strong>Activities:</strong> Trekking, Cultural Tours, Festival Experiences</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Tibet -->
+    <div id="tibetModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal('tibetModal')">&times;</span>
+            <div class="modal-header">
+                <h2>Tibet - Roof of the World</h2>
+            </div>            <div class="modal-body">
+                <div class="tour-intro">
+                    <p>Journey to Tibet, the highest region on Earth with an average elevation exceeding 4,500 meters (14,800 ft). Tibet's stunning plateaus, mountains, and valleys are home to a rich Buddhist culture, historic monasteries, and breathtaking natural landscapes that will leave you in awe.</p>
+                    
+                    <!-- Image Gallery -->
+                    <div class="modal-image-gallery">
+                        <h3>Discover Tibet</h3>
+                        <div class="modal-gallery-grid">
+                            <div class="modal-gallery-item">
+                                <img src="images/d15.jpg" alt="Potala Palace">
+                                <div class="image-overlay">
+                                    <h4>Potala Palace</h4>
+                                    <p>Iconic palace and monastery in Lhasa</p>
+                                </div>
+                            </div>
+                            <div class="modal-gallery-item">
+                                <img src="images/d16.jpeg" alt="Himalayan Peaks">
+                                <div class="image-overlay">
+                                    <h4>Himalayan Peaks</h4>
+                                    <p>Roof of the world with majestic mountains</p>
+                                </div>
+                            </div>
+                            <div class="modal-gallery-item">
+                                <img src="images/d17.avif" alt="Tibetan Monasteries">
+                                <div class="image-overlay">
+                                    <h4>Tibetan Monasteries</h4>
+                                    <p>Ancient spiritual centers and Buddhist temples</p>
+                                </div>
+                            </div>
+                            <div class="modal-gallery-item">
+                                <img src="images/d18.jpeg" alt="High Altitude Trekking">
+                                <div class="image-overlay">
+                                    <h4>High Altitude Trekking</h4>
+                                    <p>Adventures across dramatic plateau landscapes</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tour-highlights">
+                        <h3>Tour Highlights</h3>
+                        <ul>
+                            <li><strong>Best Time to Visit:</strong> April to October</li>
+                            <li><strong>Known For:</strong> Tibetan Buddhism, High Altitude Plateaus, Mount Everest</li>
+                            <li><strong>Popular Spots:</strong> Potala Palace, Jokhang Temple, Mount Kailash</li>
+                            <li><strong>Activities:</strong> Monastery Tours, Mountain Trekking, Cultural Immersion</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Nepal -->
+    <div id="nepalModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal('nepalModal')">&times;</span>
+            <div class="modal-header">
+                <h2>Nepal - Gateway to the Himalayas</h2>
+            </div>            <div class="modal-body">
+                <div class="tour-intro">
+                    <p>Explore Nepal, a country of snow peaks and sherpas, yaks and yetis, monasteries and mantras. Home to the world's highest mountain, Mount Everest, Nepal offers adventure, cultural richness, and spiritual awakening. From trekking in the Himalayas to exploring ancient temples, Nepal has something for every traveler.</p>
+                    
+                    <!-- Image Gallery -->
+                    <div class="modal-image-gallery">
+                        <h3>Discover Nepal</h3>
+                        <div class="modal-gallery-grid">
+                            <div class="modal-gallery-item">
+                                <img src="images/d19.jpeg" alt="Mount Everest">
+                                <div class="image-overlay">
+                                    <h4>Mount Everest</h4>
+                                    <p>World's highest peak and ultimate adventure</p>
+                                </div>
+                            </div>
+                            <div class="modal-gallery-item">
+                                <img src="images/d20.jpeg" alt="Kathmandu Valley">
+                                <div class="image-overlay">
+                                    <h4>Kathmandu Valley</h4>
+                                    <p>Ancient temples and cultural heritage sites</p>
+                                </div>
+                            </div>
+                            <div class="modal-gallery-item">
+                                <img src="images/d21.jpeg" alt="Himalayan Trekking">
+                                <div class="image-overlay">
+                                    <h4>Himalayan Trekking</h4>
+                                    <p>World-class trekking trails and mountain views</p>
+                                </div>
+                            </div>
+                            <div class="modal-gallery-item">
+                                <img src="images/d22.jpeg" alt="Adventure Sports">
+                                <div class="image-overlay">
+                                    <h4>Adventure Sports</h4>
+                                    <p>White water rafting and mountaineering</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tour-highlights">
+                        <h3>Tour Highlights</h3>
+                        <ul>
+                            <li><strong>Best Time to Visit:</strong> October to December, February to April</li>
+                            <li><strong>Known For:</strong> Himalayan Trekking, Mount Everest, Hindu and Buddhist Heritage</li>
+                            <li><strong>Popular Spots:</strong> Kathmandu Valley, Pokhara, Chitwan National Park</li>
+                            <li><strong>Activities:</strong> Trekking, Mountaineering, White Water Rafting, Cultural Tours</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Sri Lanka -->
+    <div id="sriLankaModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal('sriLankaModal')">&times;</span>
+            <div class="modal-header">
+                <h2>Sri Lanka - Pearl of the Indian Ocean</h2>
+            </div>            <div class="modal-body">
+                <div class="tour-intro">
+                    <p>Discover Sri Lanka, an island nation south of India in the Indian Ocean. A land of ancient ruins, religious relics, lush rainforests, golden beaches and diverse wildlife. Sri Lanka offers an incredible array of experiences from surfing and safari to pilgrimage and cultural immersion.</p>
+                    
+                    <!-- Image Gallery -->
+                    <div class="modal-image-gallery">
+                        <h3>Discover Sri Lanka</h3>
+                        <div class="modal-gallery-grid">
+                            <div class="modal-gallery-item">
+                                <img src="images/d23.jpeg" alt="Sigiriya Rock">
+                                <div class="image-overlay">
+                                    <h4>Sigiriya Rock</h4>
+                                    <p>Ancient rock fortress and UNESCO World Heritage site</p>
+                                </div>
+                            </div>
+                            <div class="modal-gallery-item">
+                                <img src="images/d24.jpeg" alt="Tea Plantations">
+                                <div class="image-overlay">
+                                    <h4>Tea Plantations</h4>
+                                    <p>Lush hill country and world-famous Ceylon tea</p>
+                                </div>
+                            </div>
+                            <div class="modal-gallery-item">
+                                <img src="images/d25.jpeg" alt="Wildlife Safari">
+                                <div class="image-overlay">
+                                    <h4>Wildlife Safari</h4>
+                                    <p>Elephants, leopards and diverse wildlife</p>
+                                </div>
+                            </div>
+                            <div class="modal-gallery-item">
+                                <img src="images/d26.jpeg" alt="Golden Beaches">
+                                <div class="image-overlay">
+                                    <h4>Golden Beaches</h4>
+                                    <p>Palm-fringed coastline and surfing spots</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tour-highlights">
+                        <h3>Tour Highlights</h3>
+                        <ul>
+                            <li><strong>Best Time to Visit:</strong> December to March (southwest), April to September (northeast)</li>
+                            <li><strong>Known For:</strong> Ancient Cities, Tea Plantations, Beaches, Wildlife</li>
+                            <li><strong>Popular Spots:</strong> Sigiriya, Kandy, Galle, Yala National Park</li>
+                            <li><strong>Activities:</strong> Wildlife Safaris, Beach Activities, Cultural Tours, Tea Plantation Visits</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Himachal Pradesh -->
+    <div id="himachalModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal('himachalModal')">&times;</span>
+            <div class="modal-header">
+                <h2>Himachal Pradesh - Land of Gods</h2>
+            </div>            <div class="modal-body">
+                <div class="tour-intro">
+                    <p>Venture into Himachal Pradesh, a northern Indian state in the Himalayas, known for its scenic mountain towns, resorts, and adventure tourism destinations. Home to ancient monasteries, colonial hill stations, and lush valleys, Himachal Pradesh is a paradise for nature lovers and adventure seekers alike.</p>
+                    
+                    <!-- Image Gallery -->
+                    <div class="modal-image-gallery">
+                        <h3>Discover Himachal Pradesh</h3>
+                        <div class="modal-gallery-grid">
+                            <div class="modal-gallery-item">
+                                <img src="images/d27.jpeg" alt="Shimla Hills">
+                                <div class="image-overlay">
+                                    <h4>Shimla Hills</h4>
+                                    <p>Colonial charm and scenic mountain views</p>
+                                </div>
+                            </div>
+                            <div class="modal-gallery-item">
+                                <img src="images/d28.jpeg" alt="Manali Adventures">
+                                <div class="image-overlay">
+                                    <h4>Manali Adventures</h4>
+                                    <p>Adventure sports hub in the Himalayas</p>
+                                </div>
+                            </div>
+                            <div class="modal-gallery-item">
+                                <img src="images/d29.jpg" alt="Dharamshala">
+                                <div class="image-overlay">
+                                    <h4>Dharamshala</h4>
+                                    <p>Tibetan culture and spiritual retreats</p>
+                                </div>
+                            </div>
+                            <div class="modal-gallery-item">
+                                <img src="images/d30.jpg" alt="Mountain Valleys">
+                                <div class="image-overlay">
+                                    <h4>Mountain Valleys</h4>
+                                    <p>Pristine valleys and alpine landscapes</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tour-highlights">
+                        <h3>Tour Highlights</h3>
+                        <ul>
+                            <li><strong>Best Time to Visit:</strong> March to June, October to December</li>
+                            <li><strong>Known For:</strong> Hill Stations, Adventure Sports, Apple Orchards</li>
+                            <li><strong>Popular Spots:</strong> Shimla, Manali, Dharamshala, Dalhousie</li>
+                            <li><strong>Activities:</strong> Trekking, Paragliding, Skiing, River Rafting, Camping</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Get all modals
+        var modals = document.querySelectorAll('.modal');        // Get all close buttons
+        var closeButtons = document.querySelectorAll('.close-button');
+        
+        // Open modal function
+        window.openModal = function(modalId) {
+            console.log('Attempting to open modal:', modalId);
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.style.display = 'block';
+                modal.style.opacity = '1';
+                modal.style.visibility = 'visible';
+                console.log('Modal opened successfully');
+                
+                // Also ensure modal content is visible
+                const modalContent = modal.querySelector('.modal-content');
+                if (modalContent) {
+                    modalContent.style.opacity = '1';
+                    modalContent.style.visibility = 'visible';
+                }
+                
+                // Initialize gallery hover for this modal
+                setTimeout(() => {
+                    initializeGalleryHover();
+                }, 100);
+            } else {
+                console.error('Modal not found:', modalId);
+            }
+        }
+        
+        // Close modal function
+        window.closeModal = function(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.style.display = 'none';
+            }
+        }
+        
+        // When the user clicks on a close button, close the corresponding modal
+        closeButtons.forEach(function(button) {
+            button.onclick = function() {
+                this.closest('.modal').style.display = "none";
+            }
+        });
+        
+        // When the user clicks anywhere outside of the modal content, close it
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = "none";
+            }
+        }// Enhanced Image Gallery Hover System
+        function initializeGalleryHover() {
+            const galleryContainers = document.querySelectorAll('.modal-image-gallery');
+            
+            galleryContainers.forEach(container => {
+                // Remove any existing hover info to prevent duplicates
+                const existingHoverInfo = container.querySelector('.gallery-hover-info');
+                if (existingHoverInfo) {
+                    existingHoverInfo.remove();
+                }
+                
+                // Create hover info element for this gallery
+                const hoverInfo = document.createElement('div');
+                hoverInfo.className = 'gallery-hover-info';
+                container.appendChild(hoverInfo);
+                
+                const galleryItems = container.querySelectorAll('.modal-gallery-item');
+                
+                galleryItems.forEach(item => {
+                    let hoverTimeout;
+                    
+                    item.addEventListener('mouseenter', function(e) {
+                        clearTimeout(hoverTimeout);
+                        
+                        const overlay = this.querySelector('.image-overlay');
+                        if (overlay) {
+                            const title = overlay.querySelector('h4')?.textContent || '';
+                            const description = overlay.querySelector('p')?.textContent || '';
+                            
+                            // Update hover info content with enhanced styling
+                            hoverInfo.innerHTML = `
+                                <h4>${title}</h4>
+                                <p>${description}</p>
+                            `;
+                            
+                            // Position the hover info
+                            positionHoverInfo(this, hoverInfo, container);
+                            
+                            // Show hover info with slight delay for smoother experience
+                            hoverTimeout = setTimeout(() => {
+                                hoverInfo.classList.add('active');
+                            }, 100);
+                        }
+                    });
+                    
+                    item.addEventListener('mouseleave', function() {
+                        clearTimeout(hoverTimeout);
+                        hoverInfo.classList.remove('active');
+                    });
+                    
+                    item.addEventListener('mousemove', function(e) {
+                        if (hoverInfo.classList.contains('active')) {
+                            // Throttle mousemove updates for better performance
+                            if (!this.mouseMoveThrottle) {
+                                this.mouseMoveThrottle = setTimeout(() => {
+                                    positionHoverInfo(this, hoverInfo, container, e);
+                                    this.mouseMoveThrottle = null;
+                                }, 16); // ~60fps
+                            }
+                        }
+                    });
+                });
+            });
+        }
+          function positionHoverInfo(item, hoverInfo, container, mouseEvent = null) {
+            const itemRect = item.getBoundingClientRect();
+            const containerRect = container.getBoundingClientRect();
+            const modalBodyRect = container.closest('.modal-body').getBoundingClientRect();
+            
+            // Calculate position relative to container
+            let top, left;
+            
+            if (mouseEvent) {
+                // Follow mouse position with offset (smoother tracking)
+                const mouseX = mouseEvent.clientX - containerRect.left;
+                const mouseY = mouseEvent.clientY - containerRect.top;
+                
+                left = mouseX + 25; // Increased offset for better visibility
+                top = mouseY - 25;
+            } else {
+                // Position relative to item (default positioning)
+                const itemLeft = itemRect.left - containerRect.left;
+                const itemTop = itemRect.top - containerRect.top;
+                
+                // Try to position to the right of the item first
+                left = itemLeft + itemRect.width + 25;
+                top = itemTop + (itemRect.height / 2) - 50; // Offset for better visual alignment
+            }
+            
+            // Get hover info dimensions
+            const hoverInfoRect = hoverInfo.getBoundingClientRect();
+            
+            // Ensure hover info stays within container bounds with better padding
+            const containerWidth = containerRect.width;
+            const containerHeight = containerRect.height;
+            const padding = 15;
+            
+            const maxLeft = containerWidth - hoverInfoRect.width - padding;
+            const maxTop = containerHeight - hoverInfoRect.height - padding;
+            
+            left = Math.max(padding, Math.min(left, maxLeft));
+            top = Math.max(padding, Math.min(top, maxTop));
+            
+            // Smart positioning: if there's not enough space on the right, try left
+            const itemCenterX = (itemRect.left - containerRect.left) + (itemRect.width / 2);
+            if (left + hoverInfoRect.width > containerWidth - padding) {
+                // Position to the left of the item
+                left = (itemRect.left - containerRect.left) - hoverInfoRect.width - 25;
+                
+                if (left < padding) {
+                    // If still no space, position above or below
+                    left = Math.max(padding, itemCenterX - (hoverInfoRect.width / 2));
+                    
+                    // Try above first
+                    const aboveTop = (itemRect.top - containerRect.top) - hoverInfoRect.height - 25;
+                    if (aboveTop >= padding) {
+                        top = aboveTop;
+                    } else {
+                        // Position below
+                        top = (itemRect.top - containerRect.top) + itemRect.height + 25;
+                    }
+                }
+            }
+            
+            // Final boundary check
+            left = Math.max(padding, Math.min(left, maxLeft));
+            top = Math.max(padding, Math.min(top, maxTop));
+            
+            hoverInfo.style.left = `${left}px`;
+            hoverInfo.style.top = `${top}px`;
+            
+            // Add dynamic arrow positioning based on hover info position
+            const hoverInfoCenterX = left + (hoverInfoRect.width / 2);
+            const itemCenterXInContainer = (itemRect.left - containerRect.left) + (itemRect.width / 2);
+              // Calculate arrow offset
+            const arrowOffset = Math.max(-40, Math.min(40, itemCenterXInContainer - hoverInfoCenterX));
+            hoverInfo.style.setProperty('--arrow-offset', `${arrowOffset}px`);
+        }
+        
+        // Initialize on page load for any already visible galleries
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(() => {
+                initializeGalleryHover();
+            }, 500);
+        });
+          function copyText(id) {
+          const text = document.getElementById(id).textContent;
+          navigator.clipboard.writeText(text).then(() => {
+            alert("Copied: " + text);
+          });
+        }        // Scroll-triggered animations for destinations
+        document.addEventListener('DOMContentLoaded', function() {
+            const destinationSections = document.querySelectorAll('.destination-section');
+            
+            // Set initial state for animations (only if Intersection Observer is supported)
+            if ('IntersectionObserver' in window) {
+                destinationSections.forEach(section => {
+                    section.style.opacity = '0';
+                    section.style.transform = 'translateY(100px)';
+                    section.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                });
+                
+                // Create intersection observer for scroll animations
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            // Add animation delay based on destination number
+                            const destinationNum = entry.target.getAttribute('data-destination');
+                            const delay = (parseInt(destinationNum) - 1) * 0.1;
+                            
+                            setTimeout(() => {
+                                entry.target.style.opacity = '1';
+                                entry.target.style.transform = 'translateY(0)';
+                                entry.target.classList.add('destination-visible');
+                                
+                                // Add subtle animation to the card content
+                                const card = entry.target.querySelector('.destination-card-full');
+                                if (card) {
+                                    card.style.animation = 'fadeInUp 1s ease forwards';
+                                }
+                            }, delay * 1000);
+                        }
+                    });
+                }, {
+                    threshold: 0.2,
+                    rootMargin: '0px 0px -100px 0px'
+                });                // Observe all destination sections
+                destinationSections.forEach(section => {
+                    observer.observe(section);
+                });
+            } else {
+                // Fallback: show all sections immediately if no Intersection Observer support
+                destinationSections.forEach(section => {
+                    section.style.opacity = '1';
+                    section.style.transform = 'translateY(0)';
+                    section.classList.add('destination-visible');
+                });
+            }
+
+            // Smooth scrolling behavior for better UX
+            document.documentElement.style.scrollBehavior = 'smooth';
+            
+            // Add scroll progress indicator
+            window.addEventListener('scroll', function() {
+                const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrolled = (winScroll / height) * 100;
+                
+                // You can add a progress bar here if desired
+                // document.getElementById("progressBar").style.width = scrolled + "%";
+            });
+        });
+    </script>
+    <!-- Footer -->
+    <footer>
+        <div class="footer-main">
+    
+          <!-- Logo and Social -->
+          <div class="footer-brand">
+            <div class="logo-row">
+              <img src="images/l1.jpg" alt="Logo 1" />
+              <img src="images/l2.jpg" alt="Logo 2" />
+              <img src="images/l3.jpg" alt="Logo 3" />
+            </div>
+            <p>Find us on social media</p>
+            <div class="social-icons">
+              <a href="https://www.instagram.com/ladakhsafari" target="_blank"><i class="fab fa-instagram"></i></a>
+              <a href="https://www.facebook.com/ladakhsafari" target="_blank"><i class="fab fa-facebook"></i></a>
+            </div>
+          </div>
+    
+          <!-- Quick Links -->
+          <div class="footer-section quick-links">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="index.html#journeys-intro">Journeys</a></li>
+              <li><a href="activity.html">Activities</a></li>
+              <li><a href="tnc.html">Terms</a></li>
+            </ul>
+          </div>
+    
+          <!-- Contact Us -->
+          <div class="footer-section contact-section">
+            <h4>Contact Us</h4>
+            <ul>
+              <li>
+                <span id="num1">+91 9810564360</span>
+                <i class="fas fa-copy copy-icon" onclick="copyText('num1')"></i>
+              </li>
+              <li>
+                <span id="num2">+91 9622235488</span>
+                <i class="fas fa-copy copy-icon" onclick="copyText('num2')"></i>
+              </li>
+              <li>
+                <span class="inline-span" id="email1">pankaj.ladakhsafari@gmail.com</span>
+                <i class="fas fa-copy copy-icon" onclick="copyText('email1')"></i>
+              </li>
+              <li>
+                <span class="inline-span" id="email2">deleks.ladakhsafari@gmail.com</span>
+                <i class="fas fa-copy copy-icon" onclick="copyText('email2')"></i>
+              </li>
+            </ul>
+          </div>
+    
+          <!-- Address -->
+          <div class="footer-section address-section">
+            <h4>Address</h4>
+            <p>
+              Leh Office: S6, Raku Complex, Fort Rd, Leh, Ladakh 194101
+            </p>
+            <p>
+              Branch Office: Shop No. 31, Sab Mall, Sector-27 NOIDA
+            </p>
+          </div>
+    
+        </div>
+      </footer>
+</body>
+</html>
