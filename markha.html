@@ -1569,25 +1569,91 @@ nav {
       <!-- Contact Us -->
       <div class="footer-section contact-section">
         <h4>Contact Us</h4>
-        <ul>
-          <li>
-            <span id="num1">+91 9810564360</span>
-            <i class="fas fa-copy copy-icon" onclick="copyText('num1')"></i>
-          </li>
-          <li>
-            <span id="num2">+91 9622235488</span>
-            <i class="fas fa-copy copy-icon" onclick="copyText('num2')"></i>
-          </li>
-          <li>
-            <span class="inline-span" id="email1">pankaj.ladakhsafari@gmail.com</span>
-            <i class="fas fa-copy copy-icon" onclick="copyText('email1')"></i>
-          </li>
-          <li>
-            <span class="inline-span" id="email2">deleks.ladakhsafari@gmail.com</span>
-            <i class="fas fa-copy copy-icon" onclick="copyText('email2')"></i>
-          </li>
-        </ul>
-      </div>
+           <div class="contact-buttons">
+              <a href="https://wa.me/918766281303" target="_blank" class="contact-btn phone-btn">
+                <i class="fab fa-whatsapp"></i>
+                <span>Text Us On WhatsApp</span>
+              </a>
+              <button type="button" class="contact-btn email-btn" id="emailBtn">
+                <i class="fas fa-envelope"></i>
+                <span>Email Us</span>
+              </button>
+              <!-- Contact Form Modal -->
+              <div id="contactModal" class="modal">
+                  <div class="modal-content">
+                      <span class="close">&times;</span>
+                      <div class="modal-header">
+                          <h3>Get in Touch</h3>
+                          <p>We'd love to hear from you!</p>
+                      </div>
+                      
+  
+                      <form id="contactForm">
+                          <div class="form-group">
+                              <input type="text" name="name" placeholder="Your Name" required>
+                          </div>
+                          <div class="form-group">
+                              <input type="email" name="email" placeholder="Your Email" required>
+                          </div>
+                          <div class="form-group">
+                              <input type="text" name="title" placeholder="Query Title" required>
+                          </div>
+                          <div class="form-group">
+                              <textarea name="message" placeholder="Your Message" required></textarea>
+                          </div>
+                          <button type="submit">Send Message</button>
+                      </form>
+                      
+  
+                      <div id="form-message"></div>
+                  </div>
+              </div>
+  
+              <!-- Contact Form CSS -->
+              <link rel="stylesheet" href="contact-form.css">
+  
+              <!-- EmailJS Script -->
+              <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+              <!-- Contact Form JS -->
+              <script src="contact-form.js"></script>
+            </div>
+          </div>
+          <style>
+            .contact-buttons {
+              display: flex;
+              flex-direction: column;
+              gap: 12px;
+              margin-top: 15px;
+            }
+            .contact-btn {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              gap: 10px;
+              padding: 12px 20px;
+              border-radius: 8px;
+              text-decoration: none;
+              font-weight: 600;
+              transition: all 0.3s ease;
+              text-align: center;
+              box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            }
+            .phone-btn {
+              background: linear-gradient(135deg, #4CAF50, #45a049);
+              color: white;
+            }
+            .email-btn {
+              background: linear-gradient(135deg, #2196F3, #1976D2);
+              color: white;
+            }
+            .contact-btn:hover {
+              transform: translateY(-2px);
+              box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+            }
+            .contact-btn i {
+              font-size: 16px;
+            }
+          </style>
 
       <!-- Address -->
       <div class="footer-section address-section">
