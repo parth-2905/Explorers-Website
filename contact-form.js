@@ -1,6 +1,6 @@
 // Initialize EmailJS
 (function() {
-    emailjs.init("3adJYGczOUSZUTXYJ");
+    emailjs.init("tb7i4Xgls4000oJUD");
 })();
 
 // Modal functionality
@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
             submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
             
             // Send email using EmailJS
-            emailjs.sendForm("trial_parth", "template_9jkc2t6", this)
+            emailjs.sendForm("explorers_query_response", "template_neaz1lm", this)
                 .then(function(response) {
                     // Success message
                     showMessage('Message sent successfully! We\'ll get back to you soon.', 'success');
