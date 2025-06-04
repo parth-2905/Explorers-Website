@@ -1441,6 +1441,92 @@
       text-align: center;
     }
   }
+
+  .contact-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 15px;
+  }
+  .contact-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    font-family: 'Montserrat', sans-serif;
+    border: none;
+  }
+  .footer-section .phone-btn {
+    background: linear-gradient(135deg, #4CAF50, #45a049) !important;
+    color: #fff !important;
+  }
+  .footer-section .email-btn {
+    background: linear-gradient(135deg, #2196F3, #1976D2) !important;
+    color: #fff !important;
+  }
+  .footer-section .phone-btn i,
+  .footer-section .phone-btn span {
+    background: none !important;
+    color: #fff !important;
+  }
+  .footer-section .email-btn i,
+  .footer-section .email-btn span {
+    background: none !important;
+    color: #fff !important;
+  }
+  .contact-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  }
+  .contact-btn i {
+    font-size: 16px;
+  }
+  .footer-section.address-section {
+    margin-left: auto;
+    padding-left: 100px;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 500;
+    line-height: 1.8;
+    background: none !important;
+    max-width: 350px;
+    text-align: left;
+  }
+  .footer-section.address-section h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 0.7rem;
+    color: #fff;
+    text-align: left;
+  }
+  .footer-section.address-section p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #fff;
+    margin: 0 0 0.5rem 0;
+    line-height: 1.8;
+    text-align: left;
+  }
+  @media (max-width: 768px) {
+    .footer-section.address-section,
+    .footer-section.address-section h4,
+    .footer-section.address-section p {
+      margin-left: 0;
+      padding-left: 0;
+      max-width: 100%;
+      text-align: center;
+    }
+  }
 </style>
 </head>
 <body>
@@ -1544,14 +1630,26 @@
               transition: all 0.3s ease;
               text-align: center;
               box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+              font-family: 'Montserrat', sans-serif;
+              border: none;
             }
-            .phone-btn {
-              background: linear-gradient(135deg, #4CAF50, #45a049);
-              color: white;
+            .footer-section .phone-btn {
+              background: linear-gradient(135deg, #4CAF50, #45a049) !important;
+              color: #fff !important;
             }
-            .email-btn {
-              background: linear-gradient(135deg, #2196F3, #1976D2);
-              color: white;
+            .footer-section .email-btn {
+              background: linear-gradient(135deg, #2196F3, #1976D2) !important;
+              color: #fff !important;
+            }
+            .footer-section .phone-btn i,
+            .footer-section .phone-btn span {
+              background: none !important;
+              color: #fff !important;
+            }
+            .footer-section .email-btn i,
+            .footer-section .email-btn span {
+              background: none !important;
+              color: #fff !important;
             }
             .contact-btn:hover {
               transform: translateY(-2px);
@@ -1559,6 +1657,45 @@
             }
             .contact-btn i {
               font-size: 16px;
+            }
+            .footer-section.address-section {
+              margin-left: auto;
+              padding-left: 100px;
+              color: #fff;
+              font-family: 'Montserrat', sans-serif;
+              font-size: 1.1rem;
+              font-weight: 500;
+              line-height: 1.8;
+              background: none !important;
+              max-width: 350px;
+              text-align: left;
+            }
+            .footer-section.address-section h4 {
+              font-family: 'Montserrat', sans-serif;
+              font-size: 1.2rem;
+              font-weight: 700;
+              margin-bottom: 0.7rem;
+              color: #fff;
+              text-align: left;
+            }
+            .footer-section.address-section p {
+              font-family: 'Montserrat', sans-serif;
+              font-size: 1.1rem;
+              font-weight: 500;
+              color: #fff;
+              margin: 0 0 0.5rem 0;
+              line-height: 1.8;
+              text-align: left;
+            }
+            @media (max-width: 768px) {
+              .footer-section.address-section,
+              .footer-section.address-section h4,
+              .footer-section.address-section p {
+                margin-left: 0;
+                padding-left: 0;
+                max-width: 100%;
+                text-align: center;
+              }
             }
           </style>
 
