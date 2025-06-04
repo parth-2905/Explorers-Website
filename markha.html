@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -973,6 +972,80 @@ nav {
                 font-size: 1.3rem;
             }
         }
+
+        .contact-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 12px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            font-family: 'Montserrat', sans-serif;
+        }
+        .footer-section .phone-btn {
+              background: linear-gradient(135deg, #4CAF50, #45a049) !important;
+              color: #fff !important;
+            }
+        .footer-section .email-btn {
+              background: linear-gradient(135deg, #2196F3, #1976D2) !important;
+              color: #fff !important;
+            }
+        .contact-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+        .contact-btn i {
+            font-size: 16px;
+        }
+        .footer-section .phone-btn, .footer-section .phone-btn *,
+.footer-section .email-btn, .footer-section .email-btn * {
+  color: #fff !important;
+  background: transparent !important;
+}
+.footer-section.address-section {
+  margin-left: auto;
+  padding-left: 100px;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+  line-height: 1.8;
+  background: none !important;
+  max-width: 350px;
+  text-align: left;
+}
+.footer-section.address-section h4 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 0.7rem;
+  color: #fff;
+  text-align: left;
+}
+.footer-section.address-section p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #fff;
+  margin: 0 0 0.5rem 0;
+  line-height: 1.8;
+  text-align: left;
+}
+@media (max-width: 768px) {
+  .footer-section.address-section,
+  .footer-section.address-section h4,
+  .footer-section.address-section p {
+    margin-left: 0;
+    padding-left: 0;
+    max-width: 100%;
+    text-align: center;
+  }
+}
     </style>
 </head>
 <body>
@@ -1548,7 +1621,7 @@ nav {
           <img src="images/l2.jpg" alt="Logo 2" />
           <img src="images/l3.jpg" alt="Logo 3" />
         </div>
-        <p class="social-title">Find us on social media</p>
+        <p>Find us on social media</p>
         <div class="social-icons">
           <a href="https://www.instagram.com/ladakhsafari" target="_blank"><i class="fab fa-instagram"></i></a>
           <a href="https://www.facebook.com/ladakhsafari" target="_blank"><i class="fab fa-facebook"></i></a>
@@ -1560,7 +1633,7 @@ nav {
         <h4>Quick Links</h4>
         <ul>
           <li><a href="index.html">Home</a></li>
-          <li><a href="http://127.0.0.1:5500/index.html#journeys-intro">Journeys</a></li>
+          <li><a href="index.html#journeys-intro">Journeys</a></li>
           <li><a href="activity.html">Activities</a></li>
           <li><a href="tnc.html">Terms</a></li>
         </ul>
@@ -1568,8 +1641,8 @@ nav {
 
       <!-- Contact Us -->
       <div class="footer-section contact-section">
-        <h4>Contact Us</h4>
-           <div class="contact-buttons">
+            <h4>Contact Us</h4>
+            <div class="contact-buttons">
               <a href="https://wa.me/918766281303" target="_blank" class="contact-btn phone-btn">
                 <i class="fab fa-whatsapp"></i>
                 <span>Text Us On WhatsApp</span>
@@ -1637,14 +1710,15 @@ nav {
               transition: all 0.3s ease;
               text-align: center;
               box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+              font-family: 'Montserrat', sans-serif;
             }
-            .phone-btn {
-              background: linear-gradient(135deg, #4CAF50, #45a049);
-              color: white;
+            .footer-section .phone-btn {
+              background: linear-gradient(135deg, #4CAF50, #45a049) !important;
+              color: #fff !important;
             }
-            .email-btn {
-              background: linear-gradient(135deg, #2196F3, #1976D2);
-              color: white;
+            .footer-section .email-btn {
+              background: linear-gradient(135deg, #2196F3, #1976D2) !important;
+              color: #fff !important;
             }
             .contact-btn:hover {
               transform: translateY(-2px);
@@ -1654,12 +1728,16 @@ nav {
               font-size: 16px;
             }
           </style>
-
+    
       <!-- Address -->
       <div class="footer-section address-section">
         <h4>Address</h4>
-        <p>Leh Office: S6, Raku Complex, Fort Rd, Leh, Ladakh 194101</p>
-        <p>Branch Office: Shop No. 31, Sab Mall, Sector-27 NOIDA</p>
+        <p>
+          Leh Office: S6, Raku Complex, Fort Rd, Leh, Ladakh 194101
+        </p>
+        <p>
+          Branch Office: Shop No. 32A, Sab Mall, Sector-27 NOIDA
+        </p>
       </div>
 
     </div>
