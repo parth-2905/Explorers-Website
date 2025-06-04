@@ -578,7 +578,6 @@ nav {
         }
         
  
-        
         /* Trek Info Overview Styles */
         .trek-info {
             padding: 60px 20px;
@@ -1127,316 +1126,9 @@ nav {
         </div>
     </section>
 
-   
-    <!-- Footer Styles -->
-    <style>
-    /* Full page background */
-    body {
-        margin: 0;
-        padding: 0;
-    }
-    
-    /* Force full width footer */
-    html, body {
-        width: 100%;
-        overflow-x: hidden;
-    }
-    
-    /* Main footer container */
-    footer {
-        position: relative;
-        background: #000000 !important;
-        color: #ffffff !important;
-        width: 100vw !important;
-        margin: 0 !important;
-        padding: 3rem 0 !important;
-        left: 50% !important;
-        right: 50% !important;
-        margin-left: -50vw !important;
-        margin-right: -50vw !important;
-    }
-    
-    /* Force all elements to use the black background */
-    footer,
-    footer *,
-    footer *:before,
-    footer *:after {
-        background: #000000 !important;
-        background-color: #000000 !important;
-        color: #ffffff !important;
-    }
-    
-    /* Ensure text remains white */
-    footer a,
-    footer h4,
-    footer p,
-    footer span,
-    footer i,
-    footer strong,
-    footer div {
-        color: #ffffff !important;
-        fill: #ffffff !important;
-        stroke: #ffffff !important;
-    }
-    
-    /* Footer content styling */
-    .footer-main {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 20px;
-    }
-    
-    .footer-section {
-        flex: 1;
-        min-width: 200px;
-        padding: 0 15px;
-        margin-bottom: 20px;
-    }
-    
-    .footer-section h4 {
-        margin-bottom: 15px;
-        font-size: 1.2rem;
-    }
-    
-    .footer-section ul {
-        list-style: none;
-        padding: 0;
-    }
-    
-    .footer-section ul li {
-        margin-bottom: 10px;
-    }
-    
-    .footer-section a {
-        text-decoration: none;
-        transition: color 0.3s ease;
-    }
-    
-    .footer-section a:hover {
-        color: #ccc !important;
-    }
-    
-    .social-icons {
-        display: flex;
-        gap: 15px;
-        margin-top: 15px;
-    }
-    
-    .social-icons a {
-        font-size: 1.5rem;
-    }
-    
-    .logo-row {
-        display: flex;
-        gap: 10px;
-        margin-bottom: 15px;
-    }
-    
-    .logo-row img {
-        height: 40px;
-        width: auto;
-    }
-    
-    .copy-icon {
-        margin-left: 8px;
-        cursor: pointer;
-        font-size: 0.9rem;
-    }
-    
-    @media (max-width: 768px) {
-        .footer-main {
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
-        
-        .footer-section {
-            width: 100%;
-            margin-bottom: 30px;
-        }
-        
-        .social-icons {
-            justify-content: center;
-        }
-    }
-    </style>
-  <!DOCTYPE html>
-  <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Footer with Contact and Logos</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-    <style>
-      body {
-        margin: 0;
-        font-family: Arial, sans-serif;
-      }
-  
-      footer {
-        background-color: #000000;
-        color: #ffffff;
-        padding: 3rem 2rem;
-      }
-  
-      .footer-main {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        max-width: 1200px;
-        margin: 0 auto;
-        gap: 0.5rem;
-      }
-  
-      .footer-brand {
-        flex: 1 1 250px;
-        margin-top: 40px;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-      }
-  
-      .logo-row {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        margin-bottom: 0.5rem;
-      }
-  
-      .footer-brand img {
-        height: 40px;
-        object-fit: contain;
-      }
-  
-      .social-title {
-        margin: 0.5rem 0 0.3rem;
-        font-weight: normal;
-        font-size: 1rem;
-      }
-  
-      .social-icons {
-        display: flex;
-        gap: 15px;
-        margin-top: 0;
-      }
-  
-      .social-icons a {
-        color: #ffffff;
-        font-size: 2rem;
-        transition: color 0.3s;
-      }
-  
-      .social-icons a:hover {
-        color: #dddddd;
-      }
-  
-      .footer-section {
-        flex: 1 1 220px;
-        padding-left: 10px;
-      }
-  
-      .footer-section h4 {
-        font-weight: bold;
-        margin-bottom: 1rem;
-        color: #ffffff;
-        text-align: left;
-      }
-  
-      .footer-section ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-      }
-  
-      .footer-section ul li {
-        margin-bottom: 0.5rem;
-        color: #ffffff;
-        display: flex;
-        align-items: center;
-        flex-wrap: wrap;
-      }
-  
-      .footer-section ul a {
-        text-decoration: none;
-        color: #ffffff;
-        transition: color 0.3s;
-      }
-  
-      .footer-section ul a:hover {
-        color: #dddddd;
-      }
-  
-      .footer-section p {
-        color: #ffffff;
-        margin: 0.5rem 0;
-      }
-  
-      .copy-icon {
-        margin-left: 8px;
-        cursor: pointer;
-        color: #ffffff;
-        font-size: 1rem;
-        transition: color 0.3s;
-      }
-  
-      .copy-icon:hover {
-        color: #dddddd;
-      }
-  
-      .inline-span {
-        display: inline-block;
-      }
-  
-      .contact-section {
-        flex: 1 1 280px;
-      }
-  
-      .address-section {
-        flex: 1 1 280px;
-        font-size: 0.92rem;
-        line-height: 1.4;
-        padding-left: 10px;
-        margin-left: 0;
-        max-width: none;
-      }
-  
-      @media (max-width: 768px) {
-        .footer-main {
-          flex-direction: column;
-          align-items: center;
-        }
-  
-        .footer-section,
-        .footer-brand {
-          text-align: center;
-          align-items: center;
-        }
-  
-        .footer-brand img {
-          margin: 0 10px;
-        }
-  
-        .address-section {
-          margin-left: 0;
-          max-width: 100%;
-          text-align: center;
-        }
-  
-        .address-section h4 {
-          text-align: center;
-        }
-      }
-    </style>
-  </head>
-  <body>
-  
     <!-- Footer -->
     <footer>
       <div class="footer-main">
-  
         <!-- Logo and Social -->
         <div class="footer-brand">
           <div class="logo-row">
@@ -1450,119 +1142,290 @@ nav {
             <a href="https://www.facebook.com/ladakhsafari" target="_blank"><i class="fab fa-facebook"></i></a>
           </div>
         </div>
-  
         <!-- Quick Links -->
         <div class="footer-section quick-links">
           <h4>Quick Links</h4>
           <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a href="http://127.0.0.1:5500/index.html#journeys-intro">Journeys</a></li>
+            <li><a href="index.html#journeys-intro">Journeys</a></li>
             <li><a href="activity.html">Activities</a></li>
             <li><a href="tnc.html">Terms</a></li>
           </ul>
         </div>
-  
         <!-- Contact Us -->
         <div class="footer-section contact-section">
           <h4>Contact Us</h4>
-              <div class="contact-buttons">
-              <a href="https://wa.me/918766281303" target="_blank" class="contact-btn phone-btn">
-                <i class="fab fa-whatsapp"></i>
-                <span>Text Us On WhatsApp</span>
-              </a>
-              <button type="button" class="contact-btn email-btn" id="emailBtn">
-                <i class="fas fa-envelope"></i>
-                <span>Email Us</span>
-              </button>
-              <!-- Contact Form Modal -->
-              <div id="contactModal" class="modal">
-                  <div class="modal-content">
-                      <span class="close">&times;</span>
-                      <div class="modal-header">
-                          <h3>Get in Touch</h3>
-                          <p>We'd love to hear from you!</p>
-                      </div>
-                      
-  
-                      <form id="contactForm">
-                          <div class="form-group">
-                              <input type="text" name="name" placeholder="Your Name" required>
-                          </div>
-                          <div class="form-group">
-                              <input type="email" name="email" placeholder="Your Email" required>
-                          </div>
-                          <div class="form-group">
-                              <input type="text" name="title" placeholder="Query Title" required>
-                          </div>
-                          <div class="form-group">
-                              <textarea name="message" placeholder="Your Message" required></textarea>
-                          </div>
-                          <button type="submit">Send Message</button>
-                      </form>
-                      
-  
-                      <div id="form-message"></div>
+          <div class="contact-buttons">
+            <a href="https://wa.me/918766281303" target="_blank" class="contact-btn phone-btn">
+              <i class="fab fa-whatsapp"></i>
+              <span>Text Us On WhatsApp</span>
+            </a>
+            <button type="button" class="contact-btn email-btn" id="emailBtn">
+              <i class="fas fa-envelope"></i>
+              <span>Email Us</span>
+            </button>
+            <!-- Contact Form Modal -->
+            <div id="contactModal" class="modal">
+              <div class="modal-content">
+                <span class="close">&times;</span>
+                <div class="modal-header">
+                  <h3>Get in Touch</h3>
+                  <p>We'd love to hear from you!</p>
+                </div>
+                <form id="contactForm">
+                  <div class="form-group">
+                    <input type="text" name="name" placeholder="Your Name" required>
                   </div>
+                  <div class="form-group">
+                    <input type="email" name="email" placeholder="Your Email" required>
+                  </div>
+                  <div class="form-group">
+                    <input type="text" name="title" placeholder="Query Title" required>
+                  </div>
+                  <div class="form-group">
+                    <textarea name="message" placeholder="Your Message" required></textarea>
+                  </div>
+                  <button type="submit">Send Message</button>
+                </form>
+                <div id="form-message"></div>
               </div>
-  
-              <!-- Contact Form CSS -->
-              <link rel="stylesheet" href="contact-form.css">
-  
-              <!-- EmailJS Script -->
-              <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-              <!-- Contact Form JS -->
-              <script src="contact-form.js"></script>
             </div>
           </div>
-          <style>
-            .contact-buttons {
-              display: flex;
-              flex-direction: column;
-              gap: 12px;
-              margin-top: 15px;
-            }
-            .contact-btn {
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              gap: 10px;
-              padding: 12px 20px;
-              border-radius: 8px;
-              text-decoration: none;
-              font-weight: 600;
-              transition: all 0.3s ease;
-              text-align: center;
-              box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            }
-            .phone-btn {
-              background: linear-gradient(135deg, #4CAF50, #45a049);
-              color: white;
-            }
-            .email-btn {
-              background: linear-gradient(135deg, #2196F3, #1976D2);
-              color: white;
-            }
-            .contact-btn:hover {
-              transform: translateY(-2px);
-              box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-            }
-            .contact-btn i {
-              font-size: 16px;
-            }
-          </style>
-          
-  
+        </div>
         <!-- Address -->
         <div class="footer-section address-section">
           <h4>Address</h4>
           <p>Leh Office: S6, Raku Complex, Fort Rd, Leh, Ladakh 194101</p>
           <p>Branch Office: Shop No. 31, Sab Mall, Sector-27 NOIDA</p>
         </div>
-  
       </div>
     </footer>
-  
-    <!-- Copy JS -->
+    <style>
+      footer {
+        background-color: #000000 !important;
+        background: #000000 !important;
+        color: #ffffff;
+        padding: 3rem 2rem;
+      }
+      footer * {
+        background-color: #000000 !important;
+        background: #000000 !important;
+      }
+      .footer-main {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        max-width: 1200px;
+        margin: 0 auto;
+        gap: 0.5rem;
+      }
+      .footer-brand {
+        flex: 1 1 250px;
+        margin-top: 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .logo-row {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 0.5rem;
+      }
+      .footer-brand img {
+        height: 40px;
+        object-fit: contain;
+      }
+      .social-title {
+        margin: 0.5rem 0 0.3rem;
+        font-weight: normal;
+        font-size: 1rem;
+      }
+      .social-icons {
+        display: flex;
+        gap: 15px;
+        margin-top: 0;
+      }
+      .social-icons a {
+        color: #ffffff;
+        font-size: 2rem;
+        transition: color 0.3s;
+      }
+      .social-icons a:hover {
+        color: #dddddd;
+      }
+      .footer-section {
+        flex: 1 1 220px;
+        padding-left: 10px;
+      }
+      .footer-section h4 {
+        font-weight: bold;
+        margin-bottom: 1rem;
+        color: #ffffff;
+        text-align: left;
+      }
+      .footer-section ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      .footer-section ul li {
+        margin-bottom: 0.5rem;
+        color: #ffffff;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+      .footer-section ul a {
+        text-decoration: none;
+        color: #ffffff;
+        transition: color 0.3s;
+      }
+      .footer-section ul a:hover {
+        color: #dddddd;
+      }
+      .footer-section p {
+        color: #ffffff;
+        margin: 0.5rem 0;
+      }
+      .copy-icon {
+        margin-left: 8px;
+        cursor: pointer;
+        color: #ffffff;
+        font-size: 1rem;
+        transition: color 0.3s;
+      }
+      .copy-icon:hover {
+        color: #dddddd;
+      }
+      .inline-span {
+        display: inline-block;
+      }
+      .contact-section {
+        flex: 1 1 280px;
+      }
+      .address-section {
+        flex: 1 1 280px;
+        font-size: 0.92rem;
+        line-height: 1.4;
+        padding-left: 10px;
+        margin-left: 0;
+        max-width: none;
+      }
+      @media (max-width: 768px) {
+        .footer-main {
+          flex-direction: column;
+          align-items: center;
+        }
+        .footer-section,
+        .footer-brand {
+          text-align: center;
+          align-items: center;
+        }
+        .footer-brand img {
+          margin: 0 10px;
+        }
+        .address-section {
+          margin-left: 0;
+          max-width: 100%;
+          text-align: center;
+        }
+        .address-section h4 {
+          text-align: center;
+        }
+      }
+      .contact-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin-top: 15px;
+      }
+      .contact-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 12px 20px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        text-align: center;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        font-family: 'Montserrat', sans-serif;
+        border: none;
+      }
+      .footer-section .phone-btn {
+        background: linear-gradient(135deg, #4CAF50, #45a049) !important;
+        color: #fff !important;
+      }
+      .footer-section .email-btn {
+        background: linear-gradient(135deg, #2196F3, #1976D2) !important;
+        color: #fff !important;
+      }
+      .footer-section .phone-btn i,
+      .footer-section .phone-btn span {
+        background: none !important;
+        color: #fff !important;
+      }
+      .footer-section .email-btn i,
+      .footer-section .email-btn span {
+        background: none !important;
+        color: #fff !important;
+      }
+      .contact-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+      }
+      .contact-btn i {
+        font-size: 16px;
+      }
+      .footer-section.address-section {
+        margin-left: auto;
+        padding-left: 100px;
+        color: #fff;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 1.1rem;
+        font-weight: 500;
+        line-height: 1.8;
+        background: none !important;
+        max-width: 350px;
+        text-align: left;
+      }
+      .footer-section.address-section h4 {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 1.2rem;
+        font-weight: 700;
+        margin-bottom: 0.7rem;
+        color: #fff;
+        text-align: left;
+      }
+      .footer-section.address-section p {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 1.1rem;
+        font-weight: 500;
+        color: #fff;
+        margin: 0 0 0.5rem 0;
+        line-height: 1.8;
+        text-align: left;
+      }
+      @media (max-width: 768px) {
+        .footer-section.address-section,
+        .footer-section.address-section h4,
+        .footer-section.address-section p {
+          margin-left: 0;
+          padding-left: 0;
+          max-width: 100%;
+          text-align: center;
+        }
+      }
+    </style>
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <!-- Contact Form CSS/JS -->
+    <link rel="stylesheet" href="contact-form.css">
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script src="contact-form.js"></script>
     <script>
       function copyText(id) {
         const text = document.getElementById(id).innerText;
@@ -1570,7 +1433,28 @@ nav {
           alert("Copied to clipboard: " + text);
         });
       }
+
+      // Tab switching for Trek Info section
+function openTab(tabId) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tab-pane");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].classList.remove("active");
+  }
+  tablinks = document.getElementsByClassName("tab-btn");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].classList.remove("active");
+  }
+  document.getElementById(tabId).classList.add("active");
+  // Find the button that triggered this and set it active
+  var btns = document.querySelectorAll('.tab-btn');
+  btns.forEach(function(btn) {
+    if (btn.getAttribute('onclick') && btn.getAttribute('onclick').includes("'"+tabId+"'")) {
+      btn.classList.add('active');
+    }
+  });
+}
     </script>
-  </body>
-  </html>
-  
+</body>
+</html>
+
