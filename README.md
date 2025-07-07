@@ -108,19 +108,19 @@ Here are a few glimpses of the final website:
 
 
 
-![Home Page](docs/homepage.png)  
+![Home Page](folder-docs/homepage.png)  
 *Home Page – Engaging hero section and introduction*
 
-![Destinations Page](docs/destinations.png)  
+![Destinations Page](folder-docs/destinations.png)  
 *Destinations – Featured travel spots in vibrant layout*
 
-![Journeys Page](docs/journeys.png)  
+![Journeys Page](folder-docs/journeys.png)  
 *Packages – Curated travel options with details*
 
-![Trek Page](docs/trek.png)  
+![Trek Page](folder-docs/trek.png)  
 *Itinerary of trek along with necessary details*
 
-![Contact Page](docs/contact_js.png)  
+![Contact Page](folder-docs/contact_js.png)  
 *Contact – EmailJS integrated contact form*
 
 
